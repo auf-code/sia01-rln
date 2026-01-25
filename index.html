@@ -11,6 +11,7 @@
             --primary-dark: #1e40af;
             --secondary: #0f172a;     /* Slate Dark */
             --accent: #f1f5f9;        /* Light Gray Background */
+            --highlight: #e0e7ff;     /* Light Blue Highlight */
             --success: #10b981;       /* Green */
             --warning: #f59e0b;       /* Orange */
             --danger: #ef4444;        /* Red for Exams */
@@ -72,16 +73,16 @@
         header {
             background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
             color: var(--white);
-            padding: 4rem 5% 5rem 5%;
+            padding: 5rem 5%;
             text-align: center;
         }
 
         header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-        header p { color: #cbd5e1; max-width: 600px; margin: 0 auto 2rem auto; }
+        header p { color: #cbd5e1; max-width: 600px; margin: 0 auto; }
 
         /* --- COMMON SECTION STYLES --- */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 3rem 1.5rem;
         }
@@ -89,7 +90,48 @@
         .section-header { margin-bottom: 2rem; }
         .section-header h2 { font-size: 1.8rem; color: var(--secondary); border-left: 5px solid var(--primary); padding-left: 1rem; }
 
-        /* --- LECTURE SCHEDULE (Accordion) --- */
+        /* --- COURSE DESCRIPTION --- */
+        .desc-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        .desc-text { font-size: 1.05rem; color: var(--text-main); margin-bottom: 1rem; }
+
+        /* --- MAJOR COURSE OUTPUTS (MCO) --- */
+        .mco-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .mco-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--success);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .mco-card h3 { color: var(--secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .mco-badge { background: var(--success); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; text-transform: uppercase; }
+
+        /* --- SCHEDULE (3-Column Layout) --- */
+        .schedule-header-row {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 0.5fr; /* Topic | Lab | Date */
+            padding: 0.5rem 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
         .module {
             background: var(--white);
             border-radius: var(--radius);
@@ -100,37 +142,43 @@
             transition: transform 0.2s;
         }
 
-        /* Exam Styling */
-        .module.exam { border-left-color: var(--danger); border-right: 1px solid var(--danger); }
-        .module.exam .module-title { color: var(--danger); }
-        
-        /* Break Styling */
+        .module.exam { border-left-color: var(--danger); }
         .module.break { border-left-color: var(--text-light); opacity: 0.8; background: #f8fafc; }
 
         .module-header {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 0.5fr; /* 3 Columns */
+            align-items: center;
             padding: 1rem 1.5rem;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 1rem;
         }
         .module-header:hover { background: #f1f5f9; }
         
+        /* Column 1: Topic */
         .module-title { font-weight: 700; color: var(--secondary); font-size: 1rem; }
-        .module-date { 
-            font-size: 0.85rem; 
-            background: #eff6ff; 
-            padding: 4px 10px; 
-            border-radius: 20px; 
-            color: var(--primary); 
-            font-weight: 600; 
-            white-space: nowrap;
-            margin-left: 1rem;
+        .module-title span { display: block; font-size: 0.8rem; color: var(--primary); font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+
+        /* Column 2: Lab Activity */
+        .module-lab { 
+            font-size: 0.9rem; 
+            color: var(--text-main); 
+            background: var(--highlight); 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            display: inline-block;
+            font-weight: 500;
         }
-        
-        /* Date colors for special events */
-        .module.exam .module-date { background: #fee2e2; color: var(--danger); }
-        .module.break .module-date { background: #e2e8f0; color: var(--text-light); }
+        .module.exam .module-lab { background: #fee2e2; color: var(--danger); }
+        .module.break .module-lab { background: transparent; color: var(--text-light); font-style: italic;}
+
+        /* Column 3: Date */
+        .module-date { 
+            font-size: 0.9rem; 
+            color: var(--text-light); 
+            font-weight: 600; 
+            text-align: right;
+        }
 
         .module-content {
             max-height: 0;
@@ -141,31 +189,24 @@
         }
         .module-content.active { max-height: 600px; }
         
-        .content-inner { padding: 1.5rem; }
-        .topic-sub { font-weight: 600; color: var(--secondary); margin-bottom: 0.5rem; display: block; }
-        .topic-list li { margin-bottom: 0.3rem; padding-left: 1.2rem; position: relative; font-size: 0.95rem; color: var(--text-main); }
+        .content-inner { padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .topic-list li { margin-bottom: 0.3rem; padding-left: 1.2rem; position: relative; font-size: 0.95rem; }
         .topic-list li::before { content: "•"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
-        .outcome-box { margin-top: 1rem; padding: 1rem; background: #fff; border: 1px dashed #cbd5e1; border-radius: var(--radius); font-size: 0.9rem; color: var(--text-light); }
-
-        /* --- COURSEWORK (Grid) --- */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
         
-        .card { background: var(--white); padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow); }
-        .card h3 { color: var(--secondary); margin-bottom: 1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
-
-        .task-item { display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #f1f5f9; }
-        .task-title { font-weight: 600; display: block; }
-        .task-meta { font-size: 0.85rem; color: var(--text-light); }
-        .task-status { font-size: 0.8rem; font-weight: bold; padding: 2px 6px; border-radius: 4px; }
-        .status-due { color: var(--warning); background: #fffbeb; }
+        .outcome-box { background: #fff; border: 1px dashed #cbd5e1; border-radius: var(--radius); padding: 1rem; font-size: 0.9rem; color: var(--text-light); }
 
         /* --- FOOTER --- */
         footer { background: var(--secondary); color: #94a3b8; padding: 3rem 5%; text-align: center; margin-top: 3rem; }
 
         @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .module-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-            .module-date { margin-left: 0; }
+            .mco-grid { grid-template-columns: 1fr; }
+            .content-inner { grid-template-columns: 1fr; gap: 1rem; }
+            
+            /* Stack columns on mobile */
+            .schedule-header-row { display: none; }
+            .module-header { grid-template-columns: 1fr; gap: 0.5rem; }
+            .module-lab { display: inline-block; width: fit-content; font-size: 0.8rem; }
+            .module-date { text-align: left; font-size: 0.8rem; color: var(--text-light); }
         }
     </style>
 </head>
@@ -174,39 +215,77 @@
     <nav>
         <div class="logo">SYS<span>ARCH</span></div>
         <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#mco">Outputs</a>
             <a href="#schedule">Schedule</a>
-            <a href="#labs">Labs & Projects</a>
-            <a href="#resources">Resources</a>
         </div>
-        <a href="#" class="btn">Student Portal</a>
+        <a href="#" class="btn">Login</a>
     </nav>
 
     <header>
         <h1>Systems Integration & Architecture</h1>
-        <p>Thursdays • Spring Semester • CS405</p>
-        <div style="margin-top: 1rem;">
-            <a href="#schedule" class="btn" style="background: white; color: var(--primary);">View Weekly Schedule</a>
-        </div>
+        <p>CS405 • Spring 2024 • Prof. Smith</p>
     </header>
 
-    <div class="container" id="schedule">
+    <div class="container" id="about">
+        <div class="desc-box">
+            <h2 style="color: var(--secondary); margin-bottom: 1rem;">Course Description</h2>
+            <p class="desc-text">
+                Modern organizations depend on multiple specialized applications that must communicate seamlessly to deliver business value. This course equips students with the knowledge and skills to design, build, and maintain integration solutions that connect disparate systems effectively. Students will explore fundamental integration patterns and learn to evaluate trade-offs based on organizational needs, scalability, and technical constraints. The course emphasizes practical technologies such as RESTful and SOAP APIs, message queues, data transformation, authentication protocols, and workflow orchestration.
+            </p>
+            <p class="desc-text">
+                Through hands-on laboratory work, students will tackle real-world integration challenges: synchronizing data across CRM and ERP systems, automating workflows, aggregating information from multiple sources, and ensuring data consistency. Using modern integration platforms, students will build solutions featuring intelligent message routing, data transformation, input validation, and error handling while addressing critical enterprise requirements like security, performance, and reliability. By course completion, students will be prepared to design technically sound, business-aligned integration solutions and pursue roles as integration specialists, solution architects, or developers managing complex distributed systems.
+            </p>
+        </div>
+
+        <div id="mco">
+            <div class="section-header">
+                <h2>Major Course Outputs (MCOs)</h2>
+                <p>Primary deliverables required to pass the course.</p>
+            </div>
+            <div class="mco-grid">
+                <div class="mco-card">
+                    <h3><span class="mco-badge">MCO 1</span> Integration Spec</h3>
+                    <p style="margin-top: 10px; font-size: 0.95rem; color: var(--text-light);">
+                        Students will analyze a given business integration scenario and produce a professional <strong>Integration Specification Document</strong> that defines the proposed integration architecture, integration patterns, data flows, interfaces, and security considerations, demonstrating the ability to design and communicate a standards-based systems integration solution.
+                    </p>
+                </div>
+                <div class="mco-card">
+                    <h3><span class="mco-badge">MCO 2</span> Implemented Solution</h3>
+                    <p style="margin-top: 10px; font-size: 0.95rem; color: var(--text-light);">
+                        Students will design, implement, and demonstrate a functional <strong>systems integration solution</strong> based on the approved specification document using a low-code integration platform, applying appropriate routing, data transformation, and error-handling techniques to meet the defined requirements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="schedule" style="padding-top: 0;">
         <div class="section-header">
-            <h2>Course Schedule</h2>
-            <p style="margin-top: 0.5rem; color: #64748b;">Detailed breakdown of lectures, exams, and holidays.</p>
+            <h2>Weekly Schedule & Labs</h2>
+        </div>
+
+        <div class="schedule-header-row">
+            <div>Lecture Topic</div>
+            <div>Laboratory Activity</div>
+            <div style="text-align: right;">Date</div>
         </div>
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 1: Intro to Systems Integration (SIA)</span>
-                <span class="module-date">Jan 8</span>
+                <div class="module-title"><span>Week 1</span> Intro to Systems Integration</div>
+                <div class="module-lab">Lab 01: Environment Setup & Tools</div>
+                <div class="module-date">Jan 8</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Scope of SIA and key concepts</li>
-                        <li>Systems thinking approach</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Scope of SIA and key concepts</li>
+                            <li>Systems thinking approach</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Explain scope, purpose, and key concepts of SIA.
                     </div>
@@ -216,18 +295,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 2: Role of the Systems Architect</span>
-                <span class="module-date">Jan 15</span>
+                <div class="module-title"><span>Week 2</span> Role of Systems Architect</div>
+                <div class="module-lab">Lab 02: Case Study: Architect's Decisions</div>
+                <div class="module-date">Jan 15</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Responsibilities & Skills</li>
-                        <li>Decision-making in architecture</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Responsibilities & Skills</li>
+                            <li>Decision-making in architecture</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Describe the central role and tasks of a systems architect for modeling & integration.
+                        <strong>Outcome:</strong> Describe role and tasks of a systems architect.
                     </div>
                 </div>
             </div>
@@ -235,18 +317,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 3: Monolithic vs Microservices</span>
-                <span class="module-date">Jan 22</span>
+                <div class="module-title"><span>Week 3</span> Monolith vs Microservices</div>
+                <div class="module-lab">Lab 03: Decomposing a Monolith</div>
+                <div class="module-date">Jan 22</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Characteristics of Monoliths</li>
-                        <li>Benefits & Trade-offs of Microservices</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Characteristics of Monoliths</li>
+                            <li>Benefits of Microservices</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Differentiate monolithic vs microservices and understand model implications.
+                        <strong>Outcome:</strong> Differentiate monolithic vs microservices.
                     </div>
                 </div>
             </div>
@@ -254,18 +339,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 4: System vs. Software Architecture</span>
-                <span class="module-date">Jan 29</span>
+                <div class="module-title"><span>Week 4</span> Architecture Modeling</div>
+                <div class="module-lab">Lab 04: C4 Model Practice</div>
+                <div class="module-date">Jan 29</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Architecture views & model boundaries</li>
-                        <li>C4 Model vs UML</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Architecture views & boundaries</li>
+                            <li>C4 Model vs UML</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Distinguish system vs software architecture and apply modeling views.
+                        <strong>Outcome:</strong> Distinguish system vs software architecture.
                     </div>
                 </div>
             </div>
@@ -273,18 +361,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 5: Business Process Modeling (BPMN)</span>
-                <span class="module-date">Feb 5</span>
+                <div class="module-title"><span>Week 5</span> Business Process (BPMN)</div>
+                <div class="module-lab">Lab 05: Business Process Mapping</div>
+                <div class="module-date">Feb 5</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>BPMN elements & Process orchestration</li>
-                        <li>Integration touchpoints</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>BPMN elements & orchestration</li>
+                            <li>Integration touchpoints</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Create BPMN diagrams representing organizational processes.
+                        <strong>Outcome:</strong> Create BPMN diagrams representing processes.
                     </div>
                 </div>
             </div>
@@ -292,18 +383,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 6: UML for System Modeling</span>
-                <span class="module-date">Feb 12</span>
+                <div class="module-title"><span>Week 6</span> UML System Modeling</div>
+                <div class="module-lab">Lab 06: Use Case & Class Diagrams</div>
+                <div class="module-date">Feb 12</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Use Case Diagrams</li>
-                        <li>Class & Sequence Diagrams</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Use Case Diagrams</li>
+                            <li>Class & Sequence Diagrams</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Create UML diagrams for system requirements and interactions.
+                        <strong>Outcome:</strong> Create UML diagrams for system requirements.
                     </div>
                 </div>
             </div>
@@ -311,18 +405,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 7: Integration Flows (UML + BPMN)</span>
-                <span class="module-date">Feb 19</span>
+                <div class="module-title"><span>Week 7</span> Integration Flows</div>
+                <div class="module-lab">Lab 07: Sequence Diagramming Flows</div>
+                <div class="module-date">Feb 19</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Integration patterns</li>
-                        <li>Orchestration logic</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Integration patterns in UML</li>
+                            <li>Orchestration logic</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Produce UML/BPMN diagrams depicting integration flows.
+                        <strong>Outcome:</strong> Produce diagrams depicting integration flows.
                     </div>
                 </div>
             </div>
@@ -330,18 +427,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 8: SysML for Systems Architecture</span>
-                <span class="module-date">Feb 26</span>
+                <div class="module-title"><span>Week 8</span> SysML Architecture</div>
+                <div class="module-lab">Lab 08: SysML Block Definition</div>
+                <div class="module-date">Feb 26</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Block definition diagrams</li>
-                        <li>Internal block diagrams & parametrics</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Block definition diagrams</li>
+                            <li>Internal block diagrams</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Create SysML diagrams representing high-level system architecture.
+                        <strong>Outcome:</strong> Create SysML diagrams for high-level architecture.
                     </div>
                 </div>
             </div>
@@ -349,15 +449,18 @@
 
         <div class="module exam">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 9: Midterm Examination</span>
-                <span class="module-date">Mar 5</span>
+                <div class="module-title"><span>Week 9</span> Midterm Examination</div>
+                <div class="module-lab">Midterm Assessment</div>
+                <div class="module-date">Mar 5</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Assessment Focus:</span>
-                    <p style="margin-bottom: 1rem;">Model interpretation and critique.</p>
+                    <div>
+                        <strong>Assessment Focus:</strong>
+                        <p>Model interpretation and critique.</p>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Analyze and critique system models; Assess understanding of architectural concepts.
+                        <strong>Outcome:</strong> Analyze and critique system models.
                     </div>
                 </div>
             </div>
@@ -365,18 +468,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 10: Modeling Integration Patterns</span>
-                <span class="module-date">Mar 12</span>
+                <div class="module-title"><span>Week 10</span> Integration Patterns</div>
+                <div class="module-lab">Lab 09: Designing SOA Patterns</div>
+                <div class="module-date">Mar 12</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Layered Architecture</li>
-                        <li>SOA & Event-driven diagrams</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Layered Architecture</li>
+                            <li>SOA & Event-driven diagrams</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Model common integration patterns using UML/SysML.
+                        <strong>Outcome:</strong> Model common integration patterns.
                     </div>
                 </div>
             </div>
@@ -384,18 +490,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 11: API and Service Modeling</span>
-                <span class="module-date">Mar 19</span>
+                <div class="module-title"><span>Week 11</span> API & Service Modeling</div>
+                <div class="module-lab">Lab 10: OpenAPI Specification</div>
+                <div class="module-date">Mar 19</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Service interfaces & interactions</li>
-                        <li>Sequence, Component, and Deployment diagrams</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Service interfaces & interactions</li>
+                            <li>Deployment diagrams</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Produce diagrams showing API interaction and deployment flows.
+                        <strong>Outcome:</strong> Produce diagrams showing API interaction.
                     </div>
                 </div>
             </div>
@@ -403,18 +512,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 12: Data Modeling for Integrated Systems</span>
-                <span class="module-date">Mar 26</span>
+                <div class="module-title"><span>Week 12</span> Data & Information Model</div>
+                <div class="module-lab">Lab 11: JSON Schema & Canonical Models</div>
+                <div class="module-date">Mar 26</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Logical data models</li>
-                        <li>Message schemas & Canonical models</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Logical data models</li>
+                            <li>Message schemas</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Create models representing data structures and flow.
+                        <strong>Outcome:</strong> Create models representing data flow.
                     </div>
                 </div>
             </div>
@@ -422,25 +534,29 @@
 
         <div class="module break">
             <div class="module-header">
-                <span class="module-title">University Days / Holy Week</span>
-                <span class="module-date">Mar 27 - Apr 3</span>
+                <div class="module-title">University Days / Holy Week</div>
+                <div class="module-lab">No Laboratory</div>
+                <div class="module-date">Mar 27 - Apr 3</div>
             </div>
         </div>
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 13: Modeling Security & Trust Boundaries</span>
-                <span class="module-date">Apr 9</span>
+                <div class="module-title"><span>Week 13</span> Security Modeling</div>
+                <div class="module-lab">Lab 12: Threat Modeling</div>
+                <div class="module-date">Apr 9</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Threat modeling & Access flows</li>
-                        <li>Trust zones</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Threat modeling & Access flows</li>
+                            <li>Trust zones</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Depict security boundaries and trust zones in system models.
+                        <strong>Outcome:</strong> Depict security boundaries in system models.
                     </div>
                 </div>
             </div>
@@ -448,18 +564,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 14: Documentation & Governance</span>
-                <span class="module-date">Apr 16</span>
+                <div class="module-title"><span>Week 14</span> Docs & Governance</div>
+                <div class="module-lab">Lab 13: MCO 1 Drafting Workshop</div>
+                <div class="module-date">Apr 16</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>Viewpoints & Traceability</li>
-                        <li>Versioning & Ownership</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>Viewpoints & Traceability</li>
+                            <li>Versioning & Ownership</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Document models with traceability and governance principles.
+                        <strong>Outcome:</strong> Document models with governance principles.
                     </div>
                 </div>
             </div>
@@ -467,18 +586,21 @@
 
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 15: Legacy Systems & Modernization</span>
-                <span class="module-date">Apr 23</span>
+                <div class="module-title"><span>Week 15</span> Legacy Modernization</div>
+                <div class="module-lab">Lab 14: Modernization Strategy</div>
+                <div class="module-date">Apr 23</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <span class="topic-sub">Sub-Topics:</span>
-                    <ul class="topic-list">
-                        <li>As-is vs To-be models</li>
-                        <li>Refactoring & modernization strategies</li>
-                    </ul>
+                    <div>
+                        <strong>Sub-Topics:</strong>
+                        <ul class="topic-list">
+                            <li>As-is vs To-be models</li>
+                            <li>Refactoring strategies</li>
+                        </ul>
+                    </div>
                     <div class="outcome-box">
-                        <strong>Outcome:</strong> Create integrated models for modernization and end-to-end system analysis.
+                        <strong>Outcome:</strong> Create integrated models for modernization.
                     </div>
                 </div>
             </div>
@@ -486,77 +608,26 @@
 
         <div class="module exam">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Week 16: Final Project Presentations</span>
-                <span class="module-date">Apr 30</span>
+                <div class="module-title"><span>Week 16</span> Final Project Demos</div>
+                <div class="module-lab">MCO 2 Presentation</div>
+                <div class="module-date">Apr 30</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
-                    <p>Students demonstrate application of modeling skills.</p>
-                    <div class="outcome-box">
-                        <strong>Outcome:</strong> Students present and defend their integrated system models.
-                    </div>
+                    <div><strong>Activity:</strong> Students present and defend their integrated system models.</div>
+                    <div class="outcome-box"><strong>Goal:</strong> Application of modeling skills.</div>
                 </div>
             </div>
         </div>
 
         <div class="module exam">
             <div class="module-header" onclick="toggle(this)">
-                <span class="module-title">Final Examination</span>
-                <span class="module-date">May 4 - 5</span>
-            </div>
-            <div class="module-content">
-                <div class="content-inner">
-                    <p>Practical and conceptual assessment.</p>
-                    <div class="outcome-box">
-                        <strong>Outcome:</strong> Demonstrate modeling, analysis, and interpretation of integrated systems.
-                    </div>
-                </div>
+                <div class="module-title">Final Examination</div>
+                <div class="module-lab">Comprehensive Exam</div>
+                <div class="module-date">May 4 - 5</div>
             </div>
         </div>
 
-    </div>
-
-    <div class="container" id="labs">
-        <div class="grid-2">
-            <div class="card">
-                <h3>Labs & Assignments</h3>
-                <div class="task-item">
-                    <div>
-                        <span class="task-title">Lab 1: XML/JSON Parsing</span>
-                        <span class="task-meta">Aligned with Week 12</span>
-                    </div>
-                    <span class="task-status status-due">Active</span>
-                </div>
-                <div class="task-item">
-                    <div>
-                        <span class="task-title">Major Project: Modernization</span>
-                        <span class="task-meta">Presentation: Apr 30</span>
-                    </div>
-                    <span class="task-status status-due">In Progress</span>
-                </div>
-            </div>
-
-            <div class="card" id="resources">
-                <h3>Learning Materials</h3>
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 0.8rem;">
-                        <a href="#" style="color: var(--primary); display: flex; align-items: center; gap: 10px;">
-                             📄 <span>Syllabus (PDF)</span>
-                        </a>
-                    </li>
-                    <li style="margin-bottom: 0.8rem;">
-                        <a href="#" style="color: var(--primary); display: flex; align-items: center; gap: 10px;">
-                             📘 <span>BPMN 2.0 Poster</span>
-                        </a>
-                    </li>
-                    <li style="margin-bottom: 0.8rem;">
-                        <a href="#" style="color: var(--primary); display: flex; align-items: center; gap: 10px;">
-                             🔗 <span>Draw.io (Diagramming Tool)</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </div>
 
     <footer>
