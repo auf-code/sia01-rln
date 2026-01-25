@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems Integration & Architecture | CS405</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #2563eb;       /* Modern Blue */
+            --primary-dark: #1e40af;
+            --secondary: #0f172a;     /* Slate Dark */
+            --accent: #f8fafc;        /* Light Gray Background */
+            --text-main: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--accent);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+        }
+
+        .btn:hover { background-color: var(--primary-dark); }
+
+        /* --- HERO SECTION --- */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 5rem 5%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 600px;
+        }
+
+        .cta-group {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+        }
+        
+        .btn-outline:hover { background: var(--white); color: var(--secondary); }
+
+        /* --- HIGHLIGHTS / STATS --- */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            background: var(--white);
+            padding: 2rem 5%;
+            margin-top: -3rem;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .stat-item { text-align: center; }
+        .stat-num { display: block; font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.9rem; color: var(--text-light); }
+
+        /* --- SYLLABUS SECTION --- */
+        .container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 { font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem; }
+        .section-title p { color: var(--text-light); }
+
+        .module {
+            background: var(--white);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-left: 5px solid var(--primary);
+        }
+
+        .module-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .module-header:hover { background: #f1f5f9; }
+        
+        .module-title { font-weight: 700; color: var(--secondary); font-size: 1.1rem; }
+        .module-meta { font-size: 0.9rem; color: var(--text-light); margin-right: 1rem; }
+        .icon-toggle { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
+
+        .module-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background: #fafafa;
+        }
+
+        .module-content.active {
+            padding: 1.5rem;
+            max-height: 500px; /* Arbitrary large height for animation */
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .module-content ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .module-content ul li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- DIAGRAM PLACEHOLDERS --- */
+        .diagram-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+            align-items: center;
+        }
+
+        .diagram-text h3 { margin-bottom: 1rem; color: var(--secondary); }
+        .diagram-box {
+            background: #e2e8f0;
+            height: 300px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-style: italic;
+            border: 2px dashed #cbd5e1;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--secondary);
+            color: #94a3b8;
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .stats { flex-direction: column; gap: 2rem; width: 90%; }
+            .diagram-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplified for demo */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            SYS<span>ARCH</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about">Overview</a>
+            <a href="#syllabus">Syllabus</a>
+            <a href="#resources">Resources</a>
+        </div>
+        <a href="#" class="btn">Student Portal</a>
+    </nav>
+
+    <header>
+        <h1>Master the Art of Enterprise Systems</h1>
+        <p>CS405: Systems Integration and Architecture. Learn how to connect complex software components into a unified, efficient, and scalable ecosystem.</p>
+        <div class="cta-group">
+            <a href="#syllabus" class="btn">View Syllabus</a>
+            <a href="#" class="btn-outline">Watch Intro</a>
+        </div>
+    </header>
+
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-num">14</span>
+            <span class="stat-label">Weeks</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Major Projects</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">API</span>
+            <span class="stat-label">Focus Area</span>
+        </div>
+    </div>
+
+    <div class="container" id="about">
+        <div class="section-title">
+            <h2>Why This Course?</h2>
+            <p>Modern software doesn't live in a vacuum. Learn the patterns that bridge the gap.</p>
+        </div>
+
+        <div class="diagram-container">
+            <div class="diagram-text">
+                <h3>Architecture Design Patterns</h3>
+                <p>We move beyond simple coding. You will analyze and design architectures using REST, GraphQL, and Event-Driven patterns. We cover the full lifecycle of data movement across disparate systems.</p>
+                <br>
+                <a href="#" style="color: var(--primary); font-weight: 600;">Download Course Brief &rarr;</a>
+            </div>
+            <div class="diagram-box"></div>
+        </div>
+    </div>
+
+    <div class="container" id="syllabus">
+        <div class="section-title">
+            <h2>Course Syllabus</h2>
+            <p>A step-by-step journey through integration patterns.</p>
+        </div>
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <span class="module-title">Module 1: Foundations of Integration</span>
+                <div style="display:flex; align-items:center;">
+                    <span class="module-meta">Weeks 1-3</span>
+                    <span class="icon-toggle">+</span>
+                </div>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Introduction to Enterprise Systems</li>
+                    <li>Legacy Systems vs Modern Architectures</li>
+                    <li>Data formats: JSON, XML, Protobuf</li>
+                    <li><strong>Lab:</strong> Parsing complex data structures</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <span class="module-title">Module 2: API Design & Management</span>
+                <div style="display:flex; align-items:center;">
+                    <span class="module-meta">Weeks 4-7</span>
+                    <span class="icon-toggle">+</span>
+                </div>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>RESTful Architecture Constraints</li>
+                    <li>GraphQL: Schemas and Resolvers</li>
+                    <li>API Gateways & Rate Limiting</li>
+                    <li><strong>Project:</strong> Building a Unified Gateway</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <span class="module-title">Module 3: Messaging & Event-Driven Arch</span>
+                <div style="display:flex; align-items:center;">
+                    <span class="module-meta">Weeks 8-11</span>
+                    <span class="icon-toggle">+</span>
+                </div>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>Sync vs Async Communication</li>
+                    <li>Message Queues (RabbitMQ, Kafka)</li>
+                    <li>Pub/Sub Patterns</li>
+                    <li><strong>Lab:</strong> Implementing a Producer-Consumer Service</li>
+                </ul>
+            </div>
+        </div>
+
+         <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <span class="module-title">Module 4: Security & Cloud Integration</span>
+                <div style="display:flex; align-items:center;">
+                    <span class="module-meta">Weeks 12-14</span>
+                    <span class="icon-toggle">+</span>
+                </div>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li>OAuth 2.0 & OpenID Connect</li>
+                    <li>Microservices Security Patterns</li>
+                    <li>Serverless Integration (AWS Lambda/Azure Functions)</li>
+                    <li><strong>Final Exam:</strong> System Design Interview Simulation</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Systems Architecture Dept. All Rights Reserved.</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">Created for educational purposes.</p>
+    </footer>
+
+    <script>
+        function toggleModule(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.icon-toggle');
+            
+            // Toggle Active Class
+            content.classList.toggle('active');
+
+            // Change Icon
+            if (content.classList.contains('active')) {
+                icon.textContent = '-';
+            } else {
+                icon.textContent = '+';
+            }
+        }
+    </script>
+</body>
+</html>
