@@ -2,247 +2,243 @@
 const COURSE_DATA = [
     {
         week: 1,
-        date: "Jan 8",
-        title: "Intro to Systems Integration",
-        lab: "Lab 1: Online Business Arch",
-        topics: ["Scope of SIA and key concepts", "Systems thinking approach"],
-        outcome: "Explain scope, purpose, and key concepts of SIA.",
+        title: "Foundations of SIA",
+        lab: "Lab 1: System Scoping & Architecture",
+        topics: ["Purpose and scope of SIA", "Role of the system architect", "Architectural thinking vs implementation"],
+        outcome: "Establish architectural thinking before coding.",
         labDetails: {
-            title: "🧪 Lab 1: Architecture of Popular Businesses",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Analyze architectures of Netflix, Uber, Amazon, etc.",
-                "Reverse-engineer high-level system components.",
-                "Objective: Design exercise & diagramming practice."
+                "Critique existing architectures.",
+                "Draw System Context Diagrams.",
+                "Draft High-Level (HLD) and Low-Level Design (LLD) documents."
             ]
         }
     },
     {
         week: 2,
-        date: "Jan 15",
-        title: "Role of Systems Architect",
-        lab: "Lab 2: Vanilla User Auth",
-        topics: ["Responsibilities & Skills", "Decision-making in architecture"],
-        outcome: "Describe role and tasks of a systems architect.",
+        title: "Architecture Documentation & Communication",
+        lab: "Lab 2: Vanilla PHP Auth & Identity",
+        topics: ["System context diagrams", "Container and component diagrams", "Communicating design decisions"],
+        outcome: "Effectively document and communicate architectural decisions.",
         labDetails: {
-            title: "🧪 Lab 2: Vanilla User Auth Programming",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Program vanilla registration form (HTML/PHP/Node).",
-                "Establish database connection and user table.",
-                "Objective: Implement auth without frameworks."
+                "Review IAM case studies.",
+                "Create UML Use Case Diagrams for auth actors.",
+                "Design ER Diagrams for user/role schemas."
             ]
         }
     },
     {
         week: 3,
-        date: "Jan 22",
-        title: "Monolith vs Microservices",
-        lab: "Lab 3: Auth Modeling (OTP/Captcha)",
-        topics: ["Characteristics of Monoliths", "Benefits of Microservices"],
-        outcome: "Differentiate monolithic vs microservices.",
+        title: "Monolithic and Microservices Architectures",
+        lab: "Lab 3: Business Domain Modeling",
+        topics: ["Monolithic architecture characteristics", "Microservices principles", "Migration considerations"],
+        outcome: "Model the eCommerce domain effectively before implementation.",
         labDetails: {
-            title: "🧪 Lab 3: Modeling Captcha & Email OTP",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Design the flow for Email OTP verification.",
-                "Create Business Process Diagrams for 2FA.",
-                "Objective: Modeling secure auth flows."
+                "Guided domain modeling workshop.",
+                "Create UML Class Diagrams for product catalogs.",
+                "Draft Sequence Diagrams for core business flows."
             ]
         }
     },
     {
         week: 4,
-        date: "Jan 29",
-        title: "Architecture Modeling",
-        lab: "Lab 4: Cart & Payment Gateway",
-        topics: ["Architecture views & boundaries", "C4 Model vs UML"],
-        outcome: "Distinguish system vs software architecture.",
+        title: "API Design & Integration Patterns",
+        lab: "Lab 4: OOP Implementation",
+        topics: ["REST vs messaging APIs", "Versioning and backward compatibility", "Integration patterns (adapter, façade)"],
+        outcome: "Convert architectural models into maintainable code.",
         labDetails: {
-            title: "🧪 Lab 4: Shopping Cart & Payment",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Diagram payment sequence flows.",
-                "Implement cart workflow and integrate online payment services.",
-                "Discuss idempotency and rollback concepts."
+                "Live refactoring demo.",
+                "Map Class Diagrams to actual PHP code.",
+                "Establish code traceability matrix."
             ]
         }
     },
     {
         week: 5,
-        date: "Feb 5",
-        title: "Business Process (BPMN)",
-        lab: "Lab 5: POS & Notifications",
-        topics: ["BPMN elements & orchestration", "Integration touchpoints"],
-        outcome: "Create BPMN diagrams representing processes.",
+        title: "Scalability and Performance Fundamentals",
+        lab: "Lab 5: REST API Creation",
+        topics: ["Vertical vs horizontal scaling", "Stateless vs stateful services", "Bottlenecks and system limits"],
+        outcome: "Expose internal services for external integration with scale in mind.",
         labDetails: {
-            title: "🧪 Lab 5: POS Module & Real-Time Notifications",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Compare POS vs online flows.",
-                "Demonstrate MS Teams/email notifications via Webhooks.",
-                "Review POS-related Sequence diagrams."
+                "Review REST anti-patterns.",
+                "Create API Sequence Diagrams.",
+                "Draft Component Diagrams for API layers."
             ]
         }
     },
     {
         week: 6,
-        date: "Feb 12",
-        title: "UML System Modeling",
-        lab: "Lab 6: Msg Queues & Logging",
-        topics: ["Use Case Diagrams", "Class & Sequence Diagrams"],
-        outcome: "Create UML diagrams for system requirements.",
+        title: "Data Management in Distributed Systems",
+        lab: "Lab 6: External Data Source",
+        topics: ["Centralized vs distributed databases", "Replication strategies", "Read/write trade-offs"],
+        outcome: "Introduce upstream integration and data management strategies.",
         labDetails: {
-            title: "🧪 Lab 6: Message Queue & Newsletter",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Explain message broker concepts visually.",
-                "Demonstrate producer–consumer pattern for Async tasks.",
-                "Implement newsletter and logging subsystem."
+                "Contract-first design workshop.",
+                "Draw Data Flow Diagrams (DFD) for import processes.",
+                "Define API Contract Diagrams."
             ]
         }
     },
     {
         week: 7,
-        date: "Feb 19",
-        title: "Integration Flows",
-        lab: "Lab 7: Enterprise (ERP/RFID)",
-        topics: ["Integration patterns in UML", "Orchestration logic"],
-        outcome: "Produce diagrams depicting integration flows.",
+        title: "Caching and State Management",
+        lab: "Lab 7: Headless CMS (Strapi)",
+        topics: ["Cache-aside and write-through strategies", "Session management", "Cache invalidation challenges"],
+        outcome: "Separate content from logic and optimize via caching.",
         labDetails: {
-            title: "🧪 Lab 7: ERP, Logistics & RFID DTR",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Demonstrate RFID reader input (simulation or actual).",
-                "Explain DTR → Payroll → ERP flow.",
-                "Review Component diagrams for Hardware integration."
+                "Strapi CMS setup and demo.",
+                "Update Component Diagrams to include CMS.",
+                "Draw Deployment Diagrams for content delivery."
             ]
         }
     },
     {
         week: 8,
-        date: "Feb 26",
-        title: "SysML Architecture",
-        lab: "Lab 8: Mobile App API",
-        topics: ["Block definition diagrams", "Internal block diagrams"],
-        outcome: "Create SysML diagrams for high-level architecture.",
+        title: "Consistency Models and CAP Theorem",
+        lab: "Lab 8: Stripe & Webhooks",
+        topics: ["Strong vs eventual consistency", "CAP theorem interpretation", "Real-world system examples"],
+        outcome: "Securely integrate critical financial services with consistency.",
         labDetails: {
-            title: "🧪 Lab 8: Low-Code Mobile Integration",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Demonstrate API testing (Postman).",
-                "Explain API contracts and versioning.",
-                "Connect low-code mobile app to backend via REST APIs."
+                "Simulate webhook failures and retries.",
+                "Create detailed Payment Sequence Diagrams.",
+                "Define Trust Boundary Diagrams."
             ]
         }
     },
     {
         week: 9,
-        date: "Mar 5",
-        title: "Midterm Examination",
-        lab: "Midterm Assessment",
-        isExam: true,
-        topics: [],
-        outcome: "Analyze and critique system models.",
+        title: "Asynchronous Communication",
+        lab: "Lab 9: Async Processing",
+        topics: ["Synchronous vs asynchronous integration", "Message queues and event-driven architecture", "Reliability and decoupling"],
+        outcome: "Decouple systems for higher scalability.",
         labDetails: {
-            title: "Assessment Focus:",
-            items: ["Model interpretation and critique."]
+            title: "🧪 Activities & Diagrams",
+            items: [
+                "Sync vs Async performance demo.",
+                "Draw Event Flow Diagrams.",
+                "Design Queue Architecture Diagrams."
+            ]
         }
     },
     {
         week: 10,
-        date: "Mar 12",
-        title: "Integration Patterns",
-        lab: "Lab 9: Final Integration Review",
-        topics: ["Layered Architecture", "SOA & Event-driven diagrams"],
-        outcome: "Model common integration patterns.",
+        title: "Load Balancing and Traffic Management",
+        lab: "Lab 10: Service Integration",
+        topics: ["Load balancing concepts", "Request routing strategies", "Failover and redundancy"],
+        outcome: "Implement reliable business messaging integrations.",
         labDetails: {
-            title: "🧪 Lab 9: System Integration & Review",
+            title: "🧪 Activities & Diagrams",
             items: [
-                "Lead end-to-end testing walkthrough.",
-                "Conduct architecture review panel.",
-                "Provide structured feedback on final system."
+                "Review email delivery best practices.",
+                "Update Sequence Diagrams for async notifications.",
+                "Refine Component Diagrams."
             ]
         }
     },
     {
         week: 11,
-        date: "Mar 19",
-        title: "API & Service Modeling",
-        lab: "Project Phase 1: Core Build",
-        topics: ["Service interfaces & interactions", "Deployment diagrams"],
-        outcome: "Produce diagrams showing API interaction.",
+        title: "Time, Ordering, and Coordination",
+        lab: "Lab 11: Enterprise Systems",
+        topics: ["Logical vs physical time", "Event ordering challenges", "Idempotency and retries"],
+        outcome: "Understand complex enterprise system integrations.",
         labDetails: {
-            title: "🔨 MCO 2: Project Implementation",
-            items: ["Begin development of the Final Integrated System.", "Consultation on API Design."]
+            title: "🧪 Activities & Diagrams",
+            items: [
+                "Walkthrough of ERP logic.",
+                "Map processes using BPMN.",
+                "Create Integration Architecture Diagrams."
+            ]
         }
     },
     {
         week: 12,
-        date: "Mar 26",
-        title: "Data & Information Model",
-        lab: "Project Phase 2: Data Sync",
-        topics: ["Logical data models", "Message schemas"],
-        outcome: "Create models representing data flow.",
+        title: "Foundations of Distributed Algorithms",
+        lab: "Lab 12: Algolia Integration",
+        topics: ["Leader election (conceptual)", "Consensus overview", "Failure detection (heartbeats)"],
+        outcome: "Integrate SaaS solutions using distributed concepts.",
         labDetails: {
-            title: "🔨 MCO 2: Project Implementation",
-            items: ["Implement Data Synchronization logic.", "Refine Database Schemas."]
+            title: "🧪 Activities & Diagrams",
+            items: [
+                "Search result tuning workshop.",
+                "Draw System Interaction Diagrams for search queries.",
+                "Analyze data sync latency."
+            ]
         }
     },
     {
-        week: "Break",
-        date: "Mar 27 - Apr 3",
-        title: "University Days / Holy Week",
-        lab: "No Laboratory",
-        isBreak: true
-    },
-    {
         week: 13,
-        date: "Apr 9",
-        title: "Security Modeling",
-        lab: "Project Phase 3: Security",
-        topics: ["Threat modeling & Access flows", "Trust zones"],
-        outcome: "Depict security boundaries in system models.",
+        title: "Fault Tolerance and Reliability",
+        lab: "Lab 13: Multi-Client Arch",
+        topics: ["Failure types & Redundancy patterns", "Graceful degradation", "Circuit breakers (conceptual)"],
+        outcome: "Support multi-client architectures reliably.",
         labDetails: {
-            title: "🔨 MCO 2: Project Implementation",
-            items: ["Implement Security Protocols (OAuth/JWT).", "Finalize Trust Boundaries."]
+            title: "🧪 Activities & Diagrams",
+            items: [
+                "Discussion on API Versioning.",
+                "Design API Gateway Diagrams.",
+                "Update Sequence Diagrams for mobile specific flows."
+            ]
         }
     },
     {
         week: 14,
-        date: "Apr 16",
-        title: "Docs & Governance",
-        lab: "Documentation Workshop",
-        topics: ["Viewpoints & Traceability", "Versioning & Ownership"],
-        outcome: "Document models with governance principles.",
+        title: "Ethical & Operational Considerations",
+        lab: "Lab 14: Incident Response",
+        topics: ["Governance and ownership", "Operational impact", "Lessons from failed integrations"],
+        outcome: "Ensure operational readiness and ethical oversight.",
         labDetails: {
-            title: "📄 MCO 1: Integration Spec",
-            items: ["Drafting the Integration Specification Document.", "Peer Review of Documentation."]
+            title: "🧪 Activities & Diagrams",
+            items: [
+                "Failure simulation drill.",
+                "Map Incident Flow Diagrams.",
+                "Configure alert webhooks."
+            ]
         }
     },
     {
         week: 15,
-        date: "Apr 23",
-        title: "Legacy Modernization",
-        lab: "Final Polish & Dry Run",
-        topics: ["As-is vs To-be models", "Refactoring strategies"],
-        outcome: "Create integrated models for modernization.",
+        title: "System Design Case Studies",
+        lab: "Lab 15: Hardware Integration",
+        topics: ["Designing scalable web systems", "Designing integration-heavy systems", "Architecture justification"],
+        outcome: "Apply design patterns to complex hardware integration.",
         labDetails: {
-            title: "🚀 Pre-Presentation",
-            items: ["Dry run of Final Presentations.", "Final System Debugging."]
+            title: "🧪 Activities & Diagrams",
+            items: [
+                "Security discussion on hardware inputs.",
+                "Draw Hardware–Software Interaction Diagrams.",
+                "Map physical data flow to database."
+            ]
         }
     },
     {
         week: 16,
-        date: "Apr 30",
-        title: "Final Project Demos",
-        lab: "MCO 2 Presentation",
-        isExam: true,
-        topics: [],
-        outcome: "Students present and defend their integrated system models.",
+        title: "Final Integration & Review",
+        lab: "Lab 16: Architecture Defense",
+        topics: ["End-to-end integration", "System synthesis", "Performance review"],
+        outcome: "Synthesize learning and defend architectural decisions.",
         labDetails: {
-            title: "🎓 Final Presentation",
-            items: ["Demonstration of the fully integrated system.", "Defense of architecture decisions."]
+            title: "🧪 Activities & Diagrams",
+            items: [
+                "Design critique panel.",
+                "Present Full System Architecture Diagram.",
+                "Final end-to-end system demo."
+            ]
         }
-    },
-    {
-        week: "Finals",
-        date: "May 4 - 5",
-        title: "Final Examination",
-        lab: "Comprehensive Exam",
-        isExam: true
     }
 ];
 
@@ -272,10 +268,10 @@ const CourseDescription = () => (
         <div className="desc-box">
             <h2 style={{color: 'var(--secondary)', marginBottom: '1rem'}}>Course Description</h2>
             <p className="desc-text">
-                Modern organizations depend on multiple specialized applications that must communicate seamlessly to deliver business value. This course equips students with the knowledge and skills to design, build, and maintain integration solutions that connect disparate systems effectively. Students will explore fundamental integration patterns and learn to evaluate trade-offs based on organizational needs, scalability, and technical constraints. The course emphasizes practical technologies such as RESTful and SOAP APIs, message queues, data transformation, authentication protocols, and workflow orchestration.
+                Modern organizations depend on multiple specialized applications that must communicate seamlessly to deliver business value. This course equips students with the knowledge and skills to design, build, and maintain integration solutions that connect disparate systems effectively. Students will explore fundamental integration patterns and learn to evaluate trade-offs based on organizational needs, scalability, and technical constraints.
             </p>
             <p className="desc-text">
-                Through hands-on laboratory work, students will tackle real-world integration challenges: synchronizing data across CRM and ERP systems, automating workflows, aggregating information from multiple sources, and ensuring data consistency. Using modern integration platforms, students will build solutions featuring intelligent message routing, data transformation, input validation, and error handling while addressing critical enterprise requirements like security, performance, and reliability.
+                Through a rigorous 16-week laboratory sequence, students will build a complete eCommerce ecosystem from the ground up. Starting with high-level design, students will progressively implement authentication, product catalogs, payment gateways, message queues, and enterprise ERP connections. The course culminates in a full system integration review, ensuring students are job-ready for complex distributed system challenges.
             </p>
         </div>
     </div>
@@ -323,7 +319,7 @@ const ScheduleItem = ({ item }) => {
                     {item.title}
                 </div>
                 <div className="module-lab">{item.lab}</div>
-                <div className="module-date">{item.date}</div>
+                <div className="module-date">Week {item.week}</div>
             </div>
             
             <div className="module-content" style={{ maxHeight: isOpen ? '800px' : '0' }}>
@@ -341,7 +337,7 @@ const ScheduleItem = ({ item }) => {
                     
                     {item.outcome && (
                         <div className="outcome-box">
-                            <strong>Outcome:</strong> {item.outcome}
+                            <strong>Rationale / Objective:</strong> {item.outcome}
                         </div>
                     )}
                     
@@ -355,13 +351,6 @@ const ScheduleItem = ({ item }) => {
                             </ul>
                         </div>
                     )}
-
-                    {/* Handle special case for Finals where it's just exam text */}
-                    {!item.topics && !item.labDetails && (
-                        <div>
-                            <strong>Activity:</strong> Comprehensive conceptual and practical examination.
-                        </div>
-                    )}
                 </div>
             </div>
         </div>
@@ -371,13 +360,14 @@ const ScheduleItem = ({ item }) => {
 const ScheduleList = () => (
     <div className="container" id="schedule" style={{paddingTop: 0}}>
         <div className="section-header">
-            <h2>Weekly Schedule & Labs</h2>
+            <h2>Weekly Schedule</h2>
+            <p>Mapping architectural theory to practical application.</p>
         </div>
 
         <div className="schedule-header-row">
-            <div>Lecture Topic</div>
-            <div>Laboratory Activity</div>
-            <div style={{textAlign: 'right'}}>Date</div>
+            <div>Lecture / Topic</div>
+            <div>Lab Title</div>
+            <div style={{textAlign: 'right'}}>Week</div>
         </div>
 
         {COURSE_DATA.map((item, index) => (
