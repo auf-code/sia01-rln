@@ -2,243 +2,276 @@
 const COURSE_DATA = [
     {
         week: 1,
+        date: "Jan 6 / Jan 8",
         title: "Course Introduction & Foundations of SIA",
-        lab: "Lab 1: System Scoping & Architecture",
+        lab: "Lab 1: Introduction to SIA",
         topics: ["Role of a system architect", "Overview of SIA", "Monolithic vs microservices overview"],
         outcome: "Lecture + discussion; no assessment.",
         labDetails: {
-            title: "🧪 Lab 1 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Critique existing architectures.",
-                "Draw System Context Diagrams.",
-                "Draft High-Level (HLD) and Low-Level Design (LLD) documents."
+                "Course orientation.",
+                "Setting up development environments.",
+                "Discussion on system scoping."
             ]
         }
     },
     {
         week: 2,
-        title: "Monolithic Architecture Deep Dive",
-        lab: "Lab 2: Vanilla PHP Auth & Identity",
-        topics: ["Structure & characteristics", "Advantages and limitations", "When to use"],
-        outcome: "Diagram exercise: students analyze a monolithic system.",
+        date: "Jan 13 / Jan 15",
+        title: "Roles and Tasks of a System Architect",
+        lab: "Lab 2: Architect role exploration",
+        topics: ["Responsibilities & Skills", "Decision-making in architecture", "Stakeholder communication"],
+        outcome: "Understanding the architect's position in the SDLC.",
         labDetails: {
-            title: "🧪 Lab 2 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Review IAM case studies.",
-                "Create UML Use Case Diagrams for auth actors.",
-                "Design ER Diagrams for user/role schemas."
+                "Role-play exercise: Architect vs Developer.",
+                "Analyzing job descriptions and requirements.",
+                "Case study review."
             ]
         }
     },
     {
         week: 3,
-        title: "Microservices Architecture Deep Dive",
-        lab: "Lab 3: Business Domain Modeling",
-        topics: ["Principles & characteristics", "Advantages and limitations", "Decomposition strategies"],
-        outcome: "Small case study; students identify services from example.",
+        date: "Jan 20 / Jan 22",
+        title: "Monolithic vs Microservices Architecture",
+        lab: "Lab 3: Monolithic system exercise",
+        topics: ["Monolithic structure", "Microservices principles", "Trade-off analysis"],
+        outcome: "Diagram exercise: students analyze a monolithic system.",
         labDetails: {
-            title: "🧪 Lab 3 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Guided domain modeling workshop.",
-                "Create UML Class Diagrams for product catalogs.",
-                "Draft Sequence Diagrams for core business flows."
+                "Decomposing a legacy monolith.",
+                "Identifying service boundaries.",
+                "Drafting initial component splits."
             ]
         }
     },
     {
         week: 4,
-        title: "Scalability Fundamentals",
-        lab: "Lab 4: OOP Implementation",
-        topics: ["Vertical vs horizontal scaling", "Stateless vs stateful services"],
-        outcome: "Mini-quiz on scaling concepts.",
+        date: "Jan 27 / Jan 29",
+        title: "System vs Software Architecture",
+        lab: "Lab 4: Architecture views exercise",
+        topics: ["Modeling Perspectives", "C4 Model", "Viewpoints (Logical, Physical, Process)"],
+        outcome: "Mini-quiz on architectural views.",
         labDetails: {
-            title: "🧪 Lab 4 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Live refactoring demo.",
-                "Map Class Diagrams to actual PHP code.",
-                "Establish code traceability matrix."
+                "Drawing System Context diagrams.",
+                "Creating Container diagrams.",
+                "Differentiating system boundaries."
             ]
         }
     },
     {
         week: 5,
-        title: "Load Balancing & Caching",
-        lab: "Lab 5: REST API Creation",
-        topics: ["Load distribution strategies", "Cache concepts (cache-aside, write-through)", "Performance impact"],
-        outcome: "Lab exercise: design simple cache strategy diagram.",
+        date: "Feb 3 / Feb 5",
+        title: "Business Process Modeling with BPMN",
+        lab: "Lab 5: BPMN exercises",
+        topics: ["BPMN elements (Events, Activities, Gateways)", "Orchestration vs Choreography", "Process mapping"],
+        outcome: "Lab exercise: design business process flow.",
         labDetails: {
-            title: "🧪 Lab 5 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Review REST anti-patterns.",
-                "Create API Sequence Diagrams.",
-                "Draft Component Diagrams for API layers."
+                "Mapping an e-commerce order flow.",
+                "Using BPMN 2.0 notation tools.",
+                "Simulating process bottlenecks."
             ]
         }
     },
     {
         week: 6,
-        title: "Data Management in Distributed Systems",
-        lab: "Lab 6: External Data Source",
-        topics: ["Database replication and sharding (conceptual)", "CAP theorem (strong vs eventual consistency)"],
-        outcome: "Discussion: CAP trade-offs in real systems.",
+        date: "Feb 10 / Feb 12",
+        title: "UML for System Modeling",
+        lab: "Lab 6: UML diagrams",
+        topics: ["Use Case Diagrams", "Class Diagrams", "Sequence Diagrams"],
+        outcome: "Creating standard UML artifacts.",
         labDetails: {
-            title: "🧪 Lab 6 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Contract-first design workshop.",
-                "Draw Data Flow Diagrams (DFD) for import processes.",
-                "Define API Contract Diagrams."
+                "Modeling actor interactions.",
+                "Defining system classes and relationships.",
+                "Tracing logic via Sequence diagrams."
             ]
         }
     },
     {
         week: 7,
-        title: "Messaging and Integration",
-        lab: "Lab 7: Headless CMS (Strapi)",
-        topics: ["Synchronous vs asynchronous communication", "Message queues overview (conceptual)", "Integration patterns"],
-        outcome: "Lab: design messaging flow for a simple system.",
+        date: "Feb 17 / Feb 19",
+        title: "SysML for Systems Architecture",
+        lab: "Lab 7: Integration flows",
+        topics: ["SysML vs UML", "Block Definition Diagrams", "Internal Block Diagrams"],
+        outcome: "Applying systems engineering modeling standards.",
         labDetails: {
-            title: "🧪 Lab 7 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Strapi CMS setup and demo.",
-                "Update Component Diagrams to include CMS.",
-                "Draw Deployment Diagrams for content delivery."
+                "Defining system blocks and ports.",
+                "Mapping integration flows between blocks.",
+                "Visualizing hardware-software constraints."
             ]
         }
     },
     {
         week: 8,
-        title: "Distributed System Coordination",
-        lab: "Lab 8: Stripe & Webhooks",
-        topics: ["Leader election", "Distributed locks", "Coordination challenges"],
-        outcome: "Case scenario: how to coordinate two microservices.",
+        date: "Feb 24 / Feb 26",
+        title: "Modeling System Interactions (UML + BPMN)",
+        lab: "Lab 8: End-to-end interaction modeling",
+        topics: ["Combining structural and behavioral models", "Integration logic", "End-to-end data flow"],
+        outcome: "Synthesizing multiple modeling languages.",
         labDetails: {
-            title: "🧪 Lab 8 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Simulate webhook failures and retries.",
-                "Create detailed Payment Sequence Diagrams.",
-                "Define Trust Boundary Diagrams."
+                "Creating a unified architectural view.",
+                "Mapping BPMN processes to UML components.",
+                "Validating interaction flows."
             ]
         }
     },
     {
         week: 9,
-        title: "Fault Tolerance & Reliability",
-        lab: "Lab 9: Async Processing",
-        topics: ["Types of failures", "Heartbeats and timeouts", "Graceful degradation"],
-        outcome: "Lab discussion: plan for fault-tolerant system.",
+        date: "Mar 3 / Mar 5",
+        title: "Midterm Exam",
+        lab: "Lab 9: Midterm Review",
+        isExam: true,
+        topics: [],
+        outcome: "No new lecture content; Exam period: Mar 5–7.",
         labDetails: {
-            title: "🧪 Lab 9 Activities",
+            title: "🧪 Tuesday: Review Session",
             items: [
-                "Sync vs Async performance demo.",
-                "Draw Event Flow Diagrams.",
-                "Design Queue Architecture Diagrams."
+                "Review of architecture diagrams.",
+                "Mock exam questions.",
+                "Consultation on concepts."
             ]
         }
     },
     {
         week: 10,
-        title: "High-Level System Design Principles",
-        lab: "Lab 10: Service Integration",
-        topics: ["Architectural trade-offs", "System modularity", "Scaling and integration considerations"],
-        outcome: "Students sketch architecture for a small application.",
+        date: "Mar 10 / Mar 12",
+        title: "Scalability Fundamentals",
+        lab: "Lab 10: Integration pattern exercises",
+        topics: ["Vertical vs Horizontal scaling", "Stateless architecture", "Throughput vs Latency"],
+        outcome: "Understanding system growth strategies.",
         labDetails: {
-            title: "🧪 Lab 10 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Review email delivery best practices.",
-                "Update Sequence Diagrams for async notifications.",
-                "Refine Component Diagrams."
+                "Designing for scale.",
+                "Applying integration patterns (Gateway, Broker).",
+                "Analyzing bottlenecks."
             ]
         }
     },
     {
         week: 11,
-        title: "Case Study 1: Simple Web System",
-        lab: "Lab 11: Enterprise Systems",
-        topics: ["Example: URL shortener or blog system", "Component diagrams", "API routing"],
-        outcome: "Group assignment: design and present system diagram.",
+        date: "Mar 17 / Mar 19",
+        title: "Load Balancing & Caching",
+        lab: "Lab 11: Messaging & coordination",
+        topics: ["Load distribution algorithms", "Caching strategies (Write-through, Look-aside)", "CDN usage"],
+        outcome: "Designing performant distributed systems.",
         labDetails: {
-            title: "🧪 Lab 11 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Walkthrough of ERP logic.",
-                "Map processes using BPMN.",
-                "Create Integration Architecture Diagrams."
+                "Designing messaging flows (Pub/Sub).",
+                "Coordinating async services.",
+                "Diagramming load balancer placement."
             ]
         }
     },
     {
         week: 12,
-        title: "Case Study 2: Integration-Heavy System",
-        lab: "Lab 12: Algolia Integration",
-        topics: ["Example: e-commerce or ride-sharing platform", "Messaging, fault-tolerance, caching integration"],
-        outcome: "Group assignment continuation + peer review.",
+        date: "Mar 24 / Mar 26",
+        title: "Data Management in Distributed Systems",
+        lab: "Lab 12: Data modeling",
+        topics: ["Replication & Sharding", "CAP Theorem", "Consistency models"],
+        outcome: "NOTE: University Days Mar 23–27 (Limited Classes).",
         labDetails: {
-            title: "🧪 Lab 12 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Search result tuning workshop.",
-                "Draw System Interaction Diagrams for search queries.",
-                "Analyze data sync latency."
+                "Designing distributed data schemas.",
+                "Mapping data ownership across services.",
+                "Handling eventual consistency."
             ]
         }
     },
     {
+        week: "Break",
+        date: "Mar 27 - Apr 3",
+        title: "Holy Week Break",
+        lab: "No Classes",
+        isBreak: true
+    },
+    {
         week: 13,
-        title: "Architecture Documentation",
-        lab: "Lab 13: Multi-Client Arch",
-        topics: ["Diagram types (context, component, container)", "Justifying design decisions", "Communicating with stakeholders"],
-        outcome: "Individual assignment: submit architecture diagram + explanation.",
+        date: "Apr 7 / Apr 9",
+        title: "Modeling Security & Trust Boundaries",
+        lab: "Lab 13: Security modeling",
+        topics: ["Threat modeling", "Trust zones", "Authentication flows (OAuth/OIDC)"],
+        outcome: "Securing integration points.",
         labDetails: {
-            title: "🧪 Lab 13 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Discussion on API Versioning.",
-                "Design API Gateway Diagrams.",
-                "Update Sequence Diagrams for mobile specific flows."
+                "Identifying attack vectors.",
+                "Drawing trust boundary diagrams.",
+                "Designing secure API gateways."
             ]
         }
     },
     {
         week: 14,
-        title: "Strategic & Organizational Considerations",
-        lab: "Lab 14: Incident Response",
-        topics: ["Governance & ownership", "Organizational impact of architectural decisions", "Lessons from failed system integrations"],
-        outcome: "Reflection paper; final discussion; course wrap-up.",
+        date: "Apr 14 / Apr 16",
+        title: "Architectural Documentation & Governance",
+        lab: "Lab 14: Documentation exercises",
+        topics: ["Architecture Decision Records (ADR)", "Documentation as Code", "Governance frameworks"],
+        outcome: "Formalizing architectural knowledge.",
         labDetails: {
-            title: "🧪 Lab 14 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Failure simulation drill.",
-                "Map Incident Flow Diagrams.",
-                "Configure alert webhooks."
+                "Writing ADRs for previous labs.",
+                "Structuring a System Architecture Document (SAD).",
+                "Peer review of documentation."
             ]
         }
     },
     {
         week: 15,
-        title: "Emerging Trends & Physical Integration",
-        lab: "Lab 15: Hardware Integration",
-        topics: ["IoT and Hardware integration challenges", "Cyber-physical system security", "Review of Semester Concepts"],
-        outcome: "Preparation for Final Defense.",
+        date: "Apr 21 / Apr 23",
+        title: "Modeling Legacy Systems & End-to-End Case Studies",
+        lab: "Lab 15: Legacy systems / case prep",
+        topics: ["Strangler Fig pattern", "Modernization strategies", "Full system case study"],
+        outcome: "Applying concepts to complex scenarios.",
         labDetails: {
-            title: "🧪 Lab 15 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Security discussion on hardware inputs.",
-                "Draw Hardware–Software Interaction Diagrams.",
-                "Map physical data flow to database."
+                "Reverse engineering a legacy system model.",
+                "Planning a modernization roadmap.",
+                "Preparing for final presentation."
             ]
         }
     },
     {
         week: 16,
-        title: "Final System Synthesis",
-        lab: "Lab 16: Architecture Defense",
-        topics: ["Final Project Defense", "Architectural critique", "End-to-end system validation"],
-        outcome: "Final Project Presentation.",
+        date: "Apr 28 / Apr 30",
+        title: "Final Project Presentations",
+        lab: "Lab 16: Final project preparation",
+        topics: [],
+        isExam: true,
+        outcome: "Entire Thursday session reserved for presentations.",
         labDetails: {
-            title: "🧪 Lab 16 Activities",
+            title: "🧪 Tuesday Lab Activities",
             items: [
-                "Design critique panel.",
-                "Present Full System Architecture Diagram.",
-                "Final end-to-end system demo."
+                "Finalizing diagrams and slides.",
+                "Mock presentations.",
+                "Final QA on system models."
             ]
         }
+    },
+    {
+        week: "Finals",
+        date: "May 4 - 5",
+        title: "Final Examination",
+        lab: "Comprehensive Assessment",
+        isExam: true,
+        topics: ["No lecture content.", "Practical and conceptual assessment."]
     }
 ];
 
@@ -259,7 +292,7 @@ const Navbar = () => (
 const Header = () => (
     <header>
         <h1>Systems Integration & Architecture</h1>
-        <p>CS405 • Spring 2024 • Prof. Smith</p>
+        <p>CS405 • Spring 2026 • Prof. Smith</p>
     </header>
 );
 
@@ -319,7 +352,7 @@ const ScheduleItem = ({ item }) => {
                     {item.title}
                 </div>
                 <div className="module-lab">{item.lab}</div>
-                <div className="module-date">Week {item.week}</div>
+                <div className="module-date">{item.date}</div>
             </div>
             
             <div className="module-content" style={{ maxHeight: isOpen ? '800px' : '0' }}>
@@ -332,33 +365,40 @@ const ScheduleItem = ({ item }) => {
                                     <li key={index}>{topic}</li>
                                 ))}
                             </ul>
-                            
-                            {/* Insert Contextual Diagrams based on Topic Title */}
+
+                             {/* Contextual Images */}
                             {item.title.includes("Monolithic") && (
                                 <div style={{marginTop:'10px', fontStyle:'italic', color:'var(--primary)'}}>
                                     
 
-[Image of monolithic architecture diagram]
+[Image of monolithic vs microservices architecture]
 
                                 </div>
                             )}
-                            {item.title.includes("Microservices") && (
+                            {item.title.includes("BPMN") && (
+                                <div style={{marginTop:'10px', fontStyle:'italic', color:'var(--primary)'}}>
+                                    
+                                </div>
+                            )}
+                            {item.title.includes("UML") && !item.title.includes("SysML") && (
                                 <div style={{marginTop:'10px', fontStyle:'italic', color:'var(--primary)'}}>
                                     
 
-[Image of microservices architecture diagram]
+[Image of UML class diagram]
 
+                                </div>
+                            )}
+                            {item.title.includes("SysML") && (
+                                <div style={{marginTop:'10px', fontStyle:'italic', color:'var(--primary)'}}>
+                                    
                                 </div>
                             )}
                             {item.title.includes("Scalability") && (
                                 <div style={{marginTop:'10px', fontStyle:'italic', color:'var(--primary)'}}>
                                     
-
-[Image of vertical vs horizontal scaling]
-
                                 </div>
                             )}
-                             {item.title.includes("Load Balancing") && (
+                            {item.title.includes("Load Balancing") && (
                                 <div style={{marginTop:'10px', fontStyle:'italic', color:'var(--primary)'}}>
                                     
 
@@ -366,12 +406,7 @@ const ScheduleItem = ({ item }) => {
 
                                 </div>
                             )}
-                             {item.title.includes("Data Management") && (
-                                <div style={{marginTop:'10px', fontStyle:'italic', color:'var(--primary)'}}>
-                                    
-                                </div>
-                            )}
-                             {item.title.includes("Messaging") && (
+                            {item.title.includes("Data Management") && (
                                 <div style={{marginTop:'10px', fontStyle:'italic', color:'var(--primary)'}}>
                                     
                                 </div>
@@ -382,7 +417,7 @@ const ScheduleItem = ({ item }) => {
                     
                     {item.outcome && (
                         <div className="outcome-box">
-                            <strong>Notes / Assessment:</strong> {item.outcome}
+                            <strong>Notes / Special Events:</strong> {item.outcome}
                         </div>
                     )}
                     
@@ -406,13 +441,13 @@ const ScheduleList = () => (
     <div className="container" id="schedule" style={{paddingTop: 0}}>
         <div className="section-header">
             <h2>Weekly Schedule</h2>
-            <p>Integrated Theory & Laboratory Sequence</p>
+            <p>Tue (Lab) / Thu (Lecture) Format</p>
         </div>
 
         <div className="schedule-header-row">
-            <div>Lecture / Topic</div>
-            <div>Lab Title</div>
-            <div style={{textAlign: 'right'}}>Week</div>
+            <div>Lecture / Topic (Thu)</div>
+            <div>Lab Activity (Tue)</div>
+            <div style={{textAlign: 'right'}}>Dates</div>
         </div>
 
         {COURSE_DATA.map((item, index) => (
@@ -423,7 +458,7 @@ const ScheduleList = () => (
 
 const Footer = () => (
     <footer>
-        <p>&copy; 2024 Systems Integration & Architecture</p>
+        <p>&copy; 2026 Systems Integration & Architecture</p>
         <p style={{fontSize: '0.8rem', marginTop: '5px'}}>Created for educational purposes.</p>
     </footer>
 );
