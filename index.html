@@ -187,13 +187,23 @@
             background: #fafafa;
             border-top: 1px solid #f1f5f9;
         }
-        .module-content.active { max-height: 600px; }
+        .module-content.active { max-height: 800px; }
         
         .content-inner { padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
         .topic-list li { margin-bottom: 0.3rem; padding-left: 1.2rem; position: relative; font-size: 0.95rem; }
         .topic-list li::before { content: "•"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
         
         .outcome-box { background: #fff; border: 1px dashed #cbd5e1; border-radius: var(--radius); padding: 1rem; font-size: 0.9rem; color: var(--text-light); }
+        
+        .lab-details { 
+            margin-top: 1rem; 
+            background: #eff6ff; 
+            padding: 1rem; 
+            border-radius: var(--radius); 
+            font-size: 0.9rem; 
+            grid-column: span 2;
+        }
+        .lab-details strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
 
         /* --- FOOTER --- */
         footer { background: var(--secondary); color: #94a3b8; padding: 3rem 5%; text-align: center; margin-top: 3rem; }
@@ -201,6 +211,7 @@
         @media (max-width: 768px) {
             .mco-grid { grid-template-columns: 1fr; }
             .content-inner { grid-template-columns: 1fr; gap: 1rem; }
+            .lab-details { grid-column: span 1; }
             
             /* Stack columns on mobile */
             .schedule-header-row { display: none; }
@@ -247,13 +258,13 @@
                 <div class="mco-card">
                     <h3><span class="mco-badge">MCO 1</span> Integration Spec</h3>
                     <p style="margin-top: 10px; font-size: 0.95rem; color: var(--text-light);">
-                        Students will analyze a given business integration scenario and produce a professional <strong>Integration Specification Document</strong> that defines the proposed integration architecture, integration patterns, data flows, interfaces, and security considerations, demonstrating the ability to design and communicate a standards-based systems integration solution.
+                        Students will analyze a given business integration scenario and produce a professional <strong>Integration Specification Document</strong> that defines the proposed integration architecture, integration patterns, data flows, interfaces, and security considerations.
                     </p>
                 </div>
                 <div class="mco-card">
                     <h3><span class="mco-badge">MCO 2</span> Implemented Solution</h3>
                     <p style="margin-top: 10px; font-size: 0.95rem; color: var(--text-light);">
-                        Students will design, implement, and demonstrate a functional <strong>systems integration solution</strong> based on the approved specification document using a low-code integration platform, applying appropriate routing, data transformation, and error-handling techniques to meet the defined requirements.
+                        Students will design, implement, and demonstrate a functional <strong>systems integration solution</strong> based on the approved specification document using a low-code integration platform, applying appropriate routing and transformation techniques.
                     </p>
                 </div>
             </div>
@@ -274,13 +285,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 1</span> Intro to Systems Integration</div>
-                <div class="module-lab">Lab 01: Environment Setup & Tools</div>
+                <div class="module-lab">Lab 1: System Modeling (Intro)</div>
                 <div class="module-date">Jan 8</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Scope of SIA and key concepts</li>
                             <li>Systems thinking approach</li>
@@ -289,6 +300,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Explain scope, purpose, and key concepts of SIA.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 1: System Modeling (Part 1)</strong>
+                        <ul class="topic-list">
+                            <li>Walk through a real-world eCommerce architecture case</li>
+                            <li>Demonstrate difference between high-level vs low-level diagrams</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -296,13 +314,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 2</span> Role of Systems Architect</div>
-                <div class="module-lab">Lab 02: Case Study: Architect's Decisions</div>
+                <div class="module-lab">Lab 1: System Modeling (Finalize)</div>
                 <div class="module-date">Jan 15</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Responsibilities & Skills</li>
                             <li>Decision-making in architecture</li>
@@ -311,6 +329,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Describe role and tasks of a systems architect.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 1: System Modeling (Part 2)</strong>
+                        <ul class="topic-list">
+                            <li>Facilitate diagram critique and refinement workshop</li>
+                            <li>Objective: Analyze and model the overall eCommerce system architecture.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -318,13 +343,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 3</span> Monolith vs Microservices</div>
-                <div class="module-lab">Lab 03: Decomposing a Monolith</div>
+                <div class="module-lab">Lab 2: User Auth & Login (Start)</div>
                 <div class="module-date">Jan 22</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Characteristics of Monoliths</li>
                             <li>Benefits of Microservices</li>
@@ -333,6 +358,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Differentiate monolithic vs microservices.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 2: User Registration & Login</strong>
+                        <ul class="topic-list">
+                            <li>Review sample Use Case and Class diagrams</li>
+                            <li>Explain mapping of UML elements to PHP/Node files and tables</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -340,13 +372,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 4</span> Architecture Modeling</div>
-                <div class="module-lab">Lab 04: C4 Model Practice</div>
+                <div class="module-lab">Lab 2: User Auth & Login (Build)</div>
                 <div class="module-date">Jan 29</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Architecture views & boundaries</li>
                             <li>C4 Model vs UML</li>
@@ -355,6 +387,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Distinguish system vs software architecture.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 2: Implementation</strong>
+                        <ul class="topic-list">
+                            <li>Provide skeleton code and DB schema</li>
+                            <li>Implement secure user authentication with DB integration.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -362,13 +401,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 5</span> Business Process (BPMN)</div>
-                <div class="module-lab">Lab 05: Business Process Mapping</div>
+                <div class="module-lab">Lab 3: Product Catalog (Data)</div>
                 <div class="module-date">Feb 5</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>BPMN elements & orchestration</li>
                             <li>Integration touchpoints</li>
@@ -377,6 +416,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Create BPMN diagrams representing processes.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 3: Product Catalog with Supplier Integration</strong>
+                        <ul class="topic-list">
+                            <li>Demonstrate CSV/API-based supplier simulation</li>
+                            <li>Explain data normalization and field mapping</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -384,13 +430,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 6</span> UML System Modeling</div>
-                <div class="module-lab">Lab 06: Use Case & Class Diagrams</div>
+                <div class="module-lab">Lab 3: Product Catalog (Sync)</div>
                 <div class="module-date">Feb 12</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Use Case Diagrams</li>
                             <li>Class & Sequence Diagrams</li>
@@ -399,6 +445,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Create UML diagrams for system requirements.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 3: Implementation</strong>
+                        <ul class="topic-list">
+                            <li>Review Component Diagram showing supplier → app flow</li>
+                            <li>Integrate supplier-provided product data into catalog.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -406,13 +459,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 7</span> Integration Flows</div>
-                <div class="module-lab">Lab 07: Sequence Diagramming Flows</div>
+                <div class="module-lab">Lab 4: Cart & Checkout (Flow)</div>
                 <div class="module-date">Feb 19</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Integration patterns in UML</li>
                             <li>Orchestration logic</li>
@@ -421,6 +474,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Produce diagrams depicting integration flows.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 4: Shopping Cart + Checkout</strong>
+                        <ul class="topic-list">
+                            <li>Step-by-step walkthrough of cart → checkout → payment sequence</li>
+                            <li>Discuss security and transaction boundaries</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -428,13 +488,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 8</span> SysML Architecture</div>
-                <div class="module-lab">Lab 08: SysML Block Definition</div>
+                <div class="module-lab">Lab 4: Payment Gateway (API)</div>
                 <div class="module-date">Feb 26</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Block definition diagrams</li>
                             <li>Internal block diagrams</li>
@@ -442,6 +502,13 @@
                     </div>
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Create SysML diagrams for high-level architecture.
+                    </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 4: Implementation</strong>
+                        <ul class="topic-list">
+                            <li>Validate Sequence and Activity diagrams in class</li>
+                            <li>Implement cart workflow and integrate payment gateway.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -469,13 +536,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 10</span> Integration Patterns</div>
-                <div class="module-lab">Lab 09: Designing SOA Patterns</div>
+                <div class="module-lab">Lab 5: POS Module (Events)</div>
                 <div class="module-date">Mar 12</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Layered Architecture</li>
                             <li>SOA & Event-driven diagrams</li>
@@ -484,6 +551,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Model common integration patterns.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 5: POS & Notifications</strong>
+                        <ul class="topic-list">
+                            <li>Compare online checkout vs POS flow</li>
+                            <li>Show real-world POS architecture examples</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -491,13 +565,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 11</span> API & Service Modeling</div>
-                <div class="module-lab">Lab 10: OpenAPI Specification</div>
+                <div class="module-lab">Lab 5: Notification Webhook</div>
                 <div class="module-date">Mar 19</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Service interfaces & interactions</li>
                             <li>Deployment diagrams</li>
@@ -506,6 +580,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Produce diagrams showing API interaction.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 5: Implementation</strong>
+                        <ul class="topic-list">
+                            <li>Demonstrate webhook/MS Teams notification setup</li>
+                            <li>Integrate in-store POS and event-based notifications.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -513,13 +594,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 12</span> Data & Information Model</div>
-                <div class="module-lab">Lab 11: JSON Schema & Canonical Models</div>
+                <div class="module-lab">Lab 6: Logging & Monitoring</div>
                 <div class="module-date">Mar 26</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Logical data models</li>
                             <li>Message schemas</li>
@@ -527,6 +608,13 @@
                     </div>
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Create models representing data flow.
+                    </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 6: Reliability & Async</strong>
+                        <ul class="topic-list">
+                            <li>Explain sync vs async processing with diagrams</li>
+                            <li>Demo message queue concept visually</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -543,13 +631,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 13</span> Security Modeling</div>
-                <div class="module-lab">Lab 12: Threat Modeling</div>
+                <div class="module-lab">Lab 6: Async Queue (News)</div>
                 <div class="module-date">Apr 9</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Threat modeling & Access flows</li>
                             <li>Trust zones</li>
@@ -558,6 +646,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Depict security boundaries in system models.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 6: Implementation</strong>
+                        <ul class="topic-list">
+                            <li>Review sample email templates and formatting practices</li>
+                            <li>Implement logging, monitoring, and async newsletter processing.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -565,13 +660,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 14</span> Docs & Governance</div>
-                <div class="module-lab">Lab 13: MCO 1 Drafting Workshop</div>
+                <div class="module-lab">Lab 7: ERP Integration</div>
                 <div class="module-date">Apr 16</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>Viewpoints & Traceability</li>
                             <li>Versioning & Ownership</li>
@@ -580,6 +675,13 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Document models with governance principles.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 7: ERP & Logistics (Supplier Sync)</strong>
+                        <ul class="topic-list">
+                            <li>Walk through ERP–eCommerce integration scenario</li>
+                            <li>Analyze Component and Sequence diagrams collaboratively</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -587,13 +689,13 @@
         <div class="module">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 15</span> Legacy Modernization</div>
-                <div class="module-lab">Lab 14: Modernization Strategy</div>
+                <div class="module-lab">Lab 8: Mobile App (REST)</div>
                 <div class="module-date">Apr 23</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div>
-                        <strong>Sub-Topics:</strong>
+                        <strong>Lecture Topics:</strong>
                         <ul class="topic-list">
                             <li>As-is vs To-be models</li>
                             <li>Refactoring strategies</li>
@@ -602,6 +704,14 @@
                     <div class="outcome-box">
                         <strong>Outcome:</strong> Create integrated models for modernization.
                     </div>
+                    <div class="lab-details">
+                        <strong>🧪 Lab 8: Mobile App Integration</strong>
+                        <ul class="topic-list">
+                            <li>Demonstrate API testing using Postman</li>
+                            <li>Show mobile-to-backend data flow diagram</li>
+                            <li>Connect mobile app to backend via REST APIs</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -609,13 +719,19 @@
         <div class="module exam">
             <div class="module-header" onclick="toggle(this)">
                 <div class="module-title"><span>Week 16</span> Final Project Demos</div>
-                <div class="module-lab">MCO 2 Presentation</div>
+                <div class="module-lab">Lab 9: Final Integration</div>
                 <div class="module-date">Apr 30</div>
             </div>
             <div class="module-content">
                 <div class="content-inner">
                     <div><strong>Activity:</strong> Students present and defend their integrated system models.</div>
-                    <div class="outcome-box"><strong>Goal:</strong> Application of modeling skills.</div>
+                    <div class="lab-details" style="background: white; border: 1px dashed #cbd5e1;">
+                        <strong>🧪 Lab 9: Final System Integration & Testing</strong>
+                        <ul class="topic-list">
+                            <li>Facilitate integration testing checklist</li>
+                            <li>Conduct architecture review session</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
