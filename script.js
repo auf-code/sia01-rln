@@ -3,275 +3,187 @@ const COURSE_DATA = [
     {
         week: 1,
         date: "Jan 6 / Jan 8",
-        title: "Course Introduction & Foundations of SIA",
-        lab: "Lab 1: High-Level & Low-Level System Design",
-        topics: ["Role of a system architect", "Overview of SIA", "Monolithic vs microservices overview"],
-        outcome: "Establish architectural thinking before coding via an architecture critique session.",
-        labDetails: {
-            title: "🧪 Lab 1: Design & Scoping",
-            items: [
-                "Technical Focus: System scope, layers, boundaries.",
-                "Diagrams: System Context Diagram, HLD, LLD.",
-                "Activity: Architecture critique session."
-            ]
-        }
+        lectureTitle: "Course Introduction & Foundations of SIA",
+        lectureTopics: ["Role of a system architect", "Overview of SIA", "Monolithic vs microservices overview"],
+        lectureOutcome: "Establish architectural thinking before coding.",
+        labTitle: "Lab 1: High-Level & Low-Level Design",
+        labFocus: "System scope, layers, boundaries",
+        labDiagrams: "System Context Diagram, HLD, LLD",
+        labActivity: "Design critique session"
     },
     {
         week: 2,
         date: "Jan 13 / Jan 15",
-        title: "Roles and Tasks of a System Architect",
-        lab: "Lab 2: User Authentication & Authorization",
-        topics: ["Responsibilities & Skills", "Decision-making in architecture", "Stakeholder communication"],
-        outcome: "Establish identity foundation reused across systems via IAM failure case discussion.",
-        labDetails: {
-            title: "🧪 Lab 2: Vanilla PHP Auth",
-            items: [
-                "Technical Focus: Registration, login, sessions, roles (Vanilla PHP).",
-                "Diagrams: UML Use Case Diagram, ER Diagram.",
-                "Activity: IAM failure case discussion."
-            ]
-        }
+        lectureTitle: "Roles and Tasks of a System Architect",
+        lectureTopics: ["Responsibilities & Skills", "Decision-making in architecture", "Stakeholder communication"],
+        lectureOutcome: "Understanding the architect's position in the SDLC.",
+        labTitle: "Lab 2: User Authentication (Vanilla PHP)",
+        labFocus: "Registration, login, sessions",
+        labDiagrams: "UML Use Case Diagram, ER Diagram",
+        labActivity: "IAM case discussion"
     },
     {
         week: 3,
         date: "Jan 20 / Jan 22",
-        title: "Monolithic vs Microservices Architecture",
-        lab: "Lab 3: Secure User Authentication Modeling",
-        topics: ["Monolithic structure", "Microservices principles", "Trade-off analysis"],
-        outcome: "Teaches security flow modeling (CAPTCHA, OTP) before implementation.",
-        labDetails: {
-            title: "🧪 Lab 3: Auth Security",
-            items: [
-                "Technical Focus: CAPTCHA, OTP, login hardening.",
-                "Diagrams: Sequence Diagram, Activity Diagram.",
-                "Activity: Walkthrough of real auth attack vectors."
-            ]
-        }
+        lectureTitle: "Monolithic vs Microservices Architecture",
+        lectureTopics: ["Monolithic structure", "Microservices principles", "Trade-off analysis"],
+        lectureOutcome: "Strategic choosing of architectural patterns.",
+        labTitle: "Lab 3: Secure Auth Modeling",
+        labFocus: "CAPTCHA, OTP flows",
+        labDiagrams: "Sequence Diagram, Activity Diagram",
+        labActivity: "Auth attack walkthrough"
     },
     {
         week: 4,
         date: "Jan 27 / Jan 29",
-        title: "System vs Software Architecture",
-        lab: "Lab 4: Monolithic Architecture Design",
-        topics: ["Modeling Perspectives", "C4 Model", "Viewpoints (Logical, Physical, Process)"],
-        outcome: "Teaches deliberate monolithic architecture construction & schema validation.",
-        labDetails: {
-            title: "🧪 Lab 4: Monolith Scaffolding",
-            items: [
-                "Technical Focus: Layered monolith, base code, recommended schema.",
-                "Diagrams: Layered Architecture Diagram, ER Diagram (validated).",
-                "Activity: Base code & schema walkthrough."
-            ]
-        }
+        lectureTitle: "System vs Software Architecture",
+        lectureTopics: ["Modeling Perspectives", "C4 Model", "Viewpoints (Logical, Physical)"],
+        lectureOutcome: "Differentiating high-level systems from code structure.",
+        labTitle: "Lab 4: Monolithic Design & Scaffold",
+        labFocus: "Layered monolith, base code, schema",
+        labDiagrams: "Layered Architecture Diagram, ER Diagram",
+        labActivity: "Base code walkthrough"
     },
     {
         week: 5,
         date: "Feb 3 / Feb 5",
-        title: "Business Process Modeling with BPMN",
-        lab: "Lab 5: PHP OOP Monolithic eCommerce Implementation",
-        topics: ["BPMN elements (Events, Activities, Gateways)", "Orchestration vs Choreography", "Process mapping"],
-        outcome: "Strengthens implementation discipline through live refactoring and design-to-code traceability.",
-        labDetails: {
-            title: "🧪 Lab 5: OOP Implementation",
-            items: [
-                "Technical Focus: OOP services, repositories, controllers.",
-                "Diagrams: Design-to-Code Traceability Diagram.",
-                "Activity: Live refactoring demo."
-            ]
-        }
+        lectureTitle: "Business Process Modeling with BPMN",
+        lectureTopics: ["BPMN elements", "Orchestration vs Choreography", "Process mapping"],
+        lectureOutcome: "Aligning technical flows with business needs.",
+        labTitle: "Lab 5: PHP OOP Implementation",
+        labFocus: "OOP services, repositories",
+        labDiagrams: "Design-to-Code Traceability Diagram",
+        labActivity: "Refactoring demo"
     },
     {
         week: 6,
         date: "Feb 10 / Feb 12",
-        title: "UML for System Modeling",
-        lab: "Lab 6: Online Payment Gateway Integration",
-        topics: ["Use Case, Class, and Sequence Diagrams", "Structural vs Behavioral modeling"],
-        outcome: "Introduces high-risk external integration (Stripe) and failure analysis.",
-        labDetails: {
-            title: "🧪 Lab 6: Stripe Integration",
-            items: [
-                "Technical Focus: Stripe (test mode), checkout, webhooks.",
-                "Diagrams: Sequence Diagram, Trust Boundary Diagram.",
-                "Activity: Webhook failure & retry analysis."
-            ]
-        }
+        lectureTitle: "UML for System Modeling",
+        lectureTopics: ["Use Case, Class, and Sequence Diagrams", "Behavioral modeling"],
+        lectureOutcome: "Standardizing architectural communication.",
+        labTitle: "Lab 6: Payment Gateway Integration",
+        labFocus: "Stripe checkout, webhooks",
+        labDiagrams: "Sequence Diagram, Trust Boundary Diagram",
+        labActivity: "Webhook failure analysis"
     },
     {
         week: 7,
         date: "Feb 17 / Feb 19",
-        title: "SysML for Systems Architecture",
-        lab: "Lab 7: API Programming Fundamentals",
-        topics: ["SysML vs UML", "Block Definition Diagrams", "Internal Block Diagrams"],
-        outcome: "Enables external consumption of internal services via REST API creation.",
-        labDetails: {
-            title: "🧪 Lab 7: REST API Design",
-            items: [
-                "Technical Focus: REST API creation from monolith.",
-                "Diagrams: API Sequence Diagram, Component Diagram.",
-                "Activity: REST anti-pattern review."
-            ]
-        }
+        lectureTitle: "SysML for Systems Architecture",
+        lectureTopics: ["SysML vs UML", "Block Definition Diagrams", "Internal Blocks"],
+        lectureOutcome: "Modeling complex system-of-systems.",
+        labTitle: "Lab 7: API Programming Fundamentals",
+        labFocus: "REST APIs from monolith",
+        labDiagrams: "API Sequence Diagram, Component Diagram",
+        labActivity: "REST anti-patterns"
     },
     {
         week: 8,
         date: "Feb 24 / Feb 26",
-        title: "Modeling System Interactions & Integration Flows",
-        lab: "Lab 8: Supplier & Product Source Integration",
-        topics: ["Combining structural and behavioral models", "UML + BPMN synthesis"],
-        outcome: "Introduces upstream integration and contract-first design.",
-        labDetails: {
-            title: "🧪 Lab 8: External Sourcing",
-            items: [
-                "Technical Focus: Supplier API integration.",
-                "Diagrams: Data Flow Diagram, API Contract Diagram.",
-                "Activity: Contract-first design workshop."
-            ]
-        }
+        lectureTitle: "Modeling System Interactions",
+        lectureTopics: ["UML + BPMN synthesis", "Integration logic", "Data flow"],
+        lectureOutcome: "Mapping end-to-end interactions across boundaries.",
+        labTitle: "Lab 8: Microservice Implementation",
+        labFocus: "Decompose monolith into microservices",
+        labDiagrams: "Bounded Context Diagram, Deployment Diagram",
+        labActivity: "Monolith vs microservices trade-off discussion"
     },
     {
         week: 9,
         date: "Mar 3 / Mar 5",
-        title: "Midterm Examination",
-        lab: "Lab 9: Midterm Review",
         isExam: true,
-        topics: ["No new lecture content", "Exam period: Mar 5–7"],
-        outcome: "Comprehensive assessment of Weeks 1–8.",
-        labDetails: {
-            title: "🧪 Exam Session",
-            items: [
-                "Review of architecture diagrams.",
-                "Practical logic troubleshooting.",
-                "Q&A on integration patterns."
-            ]
-        }
+        lectureTitle: "Midterm Examination",
+        lectureTopics: ["No new lecture content"],
+        lectureOutcome: "Exam period: Mar 5–7",
+        labTitle: "Midterm Assessment",
+        labFocus: "Review of Weeks 1-8",
+        labDiagrams: "All previous diagrams",
+        labActivity: "Practical exam preparation"
     },
     {
         week: 10,
         date: "Mar 10 / Mar 12",
-        title: "Scalability Fundamentals",
-        lab: "Lab 10: Content-Driven Website Using Strapi CMS",
-        topics: ["Vertical vs horizontal scaling", "Stateless vs stateful services"],
-        outcome: "Separates content management from business logic using a Headless CMS.",
-        labDetails: {
-            title: "🧪 Lab 9: Headless CMS",
-            items: [
-                "Technical Focus: Strapi CMS as content source.",
-                "Diagrams: Component Diagram, Deployment Diagram.",
-                "Activity: Strapi admin vs API demo."
-            ]
-        }
+        lectureTitle: "Scalability Fundamentals",
+        lectureTopics: ["Vertical vs Horizontal scaling", "Stateless services"],
+        lectureOutcome: "Designing for growth and high availability.",
+        labTitle: "Lab 9: Strapi CMS Integration",
+        labFocus: "Headless CMS integration",
+        labDiagrams: "Component Diagram, Deployment Diagram",
+        labActivity: "Strapi demo"
     },
     {
         week: 11,
         date: "Mar 17 / Mar 19",
-        title: "Load Balancing & Caching",
-        lab: "Lab 11: Message Queue Fundamentals",
-        topics: ["Load distribution strategies", "Cache-aside and write-through patterns"],
-        outcome: "Introduction to decoupling and scalability via asynchronous processing.",
-        labDetails: {
-            title: "🧪 Lab 10: Message Queues",
-            items: [
-                "Technical Focus: Async processing, Redis/RabbitMQ.",
-                "Diagrams: Event Flow Diagram, Queue Architecture Diagram.",
-                "Activity: Sync vs async comparison."
-            ]
-        }
+        lectureTitle: "Load Balancing & Caching",
+        lectureTopics: ["Load distribution algorithms", "Caching strategies"],
+        lectureOutcome: "Optimizing system performance and throughput.",
+        labTitle: "Lab 10: Message Queue Fundamentals",
+        labFocus: "Async messaging",
+        labDiagrams: "Event Flow Diagram, Queue Architecture Diagram",
+        labActivity: "Sync vs async demo"
     },
     {
         week: 12,
         date: "Mar 24 / Mar 26",
-        title: "Data Management in Distributed Systems",
-        lab: "Lab 12: Newsletter & Email Service Integration",
-        topics: ["Database replication and sharding", "CAP theorem fundamentals"],
-        outcome: "University Days Mar 23–27. Applies message queues to real business use cases.",
-        labDetails: {
-            title: "🧪 Lab 11: Email Services",
-            items: [
-                "Technical Focus: Email templating, queued sending.",
-                "Diagrams: Sequence Diagram, Component Diagram.",
-                "Activity: Email deliverability discussion."
-            ]
-        }
+        lectureTitle: "Data Management in Distributed Systems",
+        lectureTopics: ["Database replication", "CAP Theorem"],
+        lectureOutcome: "University Days Mar 23-27 (Limited Classes).",
+        labTitle: "Lab 11: Email Service Integration",
+        labFocus: "Queued email sending",
+        labDiagrams: "Sequence Diagram, Component Diagram",
+        labActivity: "Deliverability discussion"
     },
     {
         week: "Break",
         date: "Mar 27 - Apr 3",
-        title: "Holy Week Break",
-        lab: "No Classes",
-        isBreak: true
+        isBreak: true,
+        lectureTitle: "Holy Week Break",
+        labTitle: "No Classes"
     },
     {
         week: 13,
         date: "Apr 7 / Apr 9",
-        title: "Modeling Security & Trust Boundaries",
-        lab: "Lab 13: Logistics & ERP Integration",
-        topics: ["Threat modeling", "Trust zones", "Authentication flows (OAuth)"],
-        outcome: "Downstream enterprise integration walkthrough via ERP simulation.",
-        labDetails: {
-            title: "🧪 Lab 12: ERP Systems",
-            items: [
-                "Technical Focus: Open-source ERP simulation.",
-                "Diagrams: BPMN, Integration Architecture Diagram.",
-                "Activity: ERP process walkthrough."
-            ]
-        }
+        lectureTitle: "Modeling Security & Trust Boundaries",
+        lectureTopics: ["Threat modeling", "Trust zones", "OAuth flows"],
+        lectureOutcome: "Securing the integration perimeter.",
+        labTitle: "Lab 12: Logistics & ERP Integration",
+        labFocus: "ERP simulation",
+        labDiagrams: "BPMN, Integration Architecture Diagram",
+        labActivity: "ERP walkthrough"
     },
     {
         week: 14,
         date: "Apr 14 / Apr 16",
-        title: "Architectural Documentation & Governance",
-        lab: "Lab 14: Product Search Engine Integration",
-        topics: ["Diagram types (context, component, container)", "Justifying design decisions"],
-        outcome: "Integrating SaaS solutions (Algolia) with search relevance tuning.",
-        labDetails: {
-            title: "🧪 Lab 13: Search Engines",
-            items: [
-                "Technical Focus: Algolia search integration.",
-                "Diagrams: System Interaction Diagram.",
-                "Activity: Search relevance tuning."
-            ]
-        }
+        lectureTitle: "Architectural Documentation & Governance",
+        lectureTopics: ["ADRs (Decision Records)", "Stakeholder communication"],
+        lectureOutcome: "Formalizing design choices.",
+        labTitle: "Lab 13: Product Search Integration",
+        labFocus: "Algolia search",
+        labDiagrams: "System Interaction Diagram",
+        labActivity: "Search tuning"
     },
     {
         week: 15,
         date: "Apr 21 / Apr 23",
-        title: "Modeling Legacy Systems & Case Studies",
-        lab: "Lab 15: Mobile & Error Monitoring",
-        topics: ["Modernization strategies", "End-to-end case reviews"],
-        outcome: "Operational readiness, observability, and mobile-first API design.",
-        labDetails: {
-            title: "🧪 Lab 14/15: Operations",
-            items: [
-                "Technical Focus: Mobile APIs, Error tracking, Alerts.",
-                "Diagrams: API Gateway Diagram, Incident Flow Diagram.",
-                "Activity: Failure injection exercise."
-            ]
-        }
+        lectureTitle: "Modeling Legacy Systems & Case Studies",
+        lectureTopics: ["Strangler Fig pattern", "System modernization"],
+        lectureOutcome: "Planning for legacy evolution.",
+        labTitle: "Lab 14 & 15: Mobile & Error Monitoring",
+        labFocus: "API reuse & Incident Flow",
+        labDiagrams: "API Gateway Diagram, Incident Flow Diagram",
+        labActivity: "Failure injection"
     },
     {
         week: 16,
         date: "Apr 28 / Apr 30",
-        title: "Final Project Presentations",
-        lab: "Lab 16: RFID & Final Review",
         isExam: true,
-        topics: ["No lecture content", "Thursday session reserved for presentations"],
-        outcome: "Synthesis of cyber-physical integration and architectural defense.",
-        labDetails: {
-            title: "🧪 Lab 16/17: Final Synthesis",
-            items: [
-                "Technical Focus: RFID Payroll, Attendance Logging.",
-                "Diagrams: Hardware–Software Interaction Diagram, Full System Architecture.",
-                "Activity: Final design review panel."
-            ]
-        }
-    },
-    {
-        week: "Finals",
-        date: "May 4 - 5",
-        title: "Final Examination",
-        lab: "Final Assessment",
-        isExam: true,
-        topics: ["Comprehensive evaluation", "Practical and conceptual assessment"]
+        lectureTitle: "Final Project Presentations",
+        lectureTopics: ["Design defense session"],
+        lectureOutcome: "Validation of architectural synthesis.",
+        labTitle: "Lab 16 & 17: RFID & Final Review",
+        labFocus: "RFID integration & Synthesis",
+        labDiagrams: "Hardware–Software Interaction Diagram, Full System Arch",
+        labActivity: "Design defense"
     }
 ];
 
@@ -289,99 +201,82 @@ const Navbar = () => (
     </nav>
 );
 
-const Header = () => (
-    <header>
-        <h1>Systems Integration & Architecture</h1>
-        <p>CS405 • Spring 2026 • Prof. Smith</p>
-    </header>
-);
-
-const CourseDescription = () => (
-    <div className="container" id="about">
-        <div className="desc-box">
-            <h2 style={{color: 'var(--secondary)', marginBottom: '1rem'}}>Course Description</h2>
-            <p className="desc-text">
-                This course focuses on the design and implementation of integrated systems that solve complex business problems. 
-                Using a combination of <strong>UML, BPMN, and SysML</strong>, students will learn to model and build 
-                distributed architectures that connect modern web apps, legacy ERPs, and hardware peripherals.
-            </p>
-            <p className="desc-text">
-                Through a hands-on 17-lab sequence, students progressively build an e-commerce ecosystem incorporating 
-                <strong> Stripe Payments, Algolia Search, Strapi CMS, and RFID hardware</strong>, culminating in a 
-                defensible enterprise-grade architecture.
-            </p>
-        </div>
-    </div>
-);
-
-const MCOSection = () => (
-    <div className="container" id="mco" style={{paddingTop: 0}}>
-        <div className="section-header">
-            <h2>Major Course Outputs (MCOs)</h2>
-            <p>Primary deliverables required to pass the course.</p>
-        </div>
-        <div className="mco-grid">
-            <div className="mco-card">
-                <h3><span className="mco-badge">MCO 1</span> Integration Spec</h3>
-                <p style={{marginTop: '10px', fontSize: '0.95rem', color: 'var(--text-light)'}}>
-                    Produce a professional <strong>Integration Specification Document</strong> defining data flows, API contracts, and security boundaries.
-                </p>
-            </div>
-            <div className="mco-card">
-                <h3><span className="mco-badge">MCO 2</span> Implemented Solution</h3>
-                <p style={{marginTop: '10px', fontSize: '0.95rem', color: 'var(--text-light)'}}>
-                    Develop a functional system connecting at least three disparate services using <strong>asynchronous messaging</strong> and <strong>OOP principles</strong>.
-                </p>
-            </div>
-        </div>
-    </div>
-);
-
 const ScheduleItem = ({ item }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
-    let moduleClass = "module" + (item.isExam ? " exam" : "") + (item.isBreak ? " break" : "");
+    const [isLectureOpen, setIsLectureOpen] = React.useState(false);
+    const [isLabOpen, setIsLabOpen] = React.useState(false);
+
+    if (item.isBreak) {
+        return (
+            <div className="module break">
+                <div className="module-header">
+                    <div className="module-title"><span>{item.week}</span> {item.lectureTitle}</div>
+                    <div className="module-date">{item.date}</div>
+                </div>
+            </div>
+        );
+    }
 
     return (
-        <div className={moduleClass}>
-            <div className="module-header" onClick={() => !item.isBreak && setIsOpen(!isOpen)}>
-                <div className="module-title">
-                    <span>{typeof item.week === 'number' ? `Week ${item.week}` : item.week}</span> 
-                    {item.title}
-                </div>
-                <div className="module-lab">{item.lab}</div>
-                <div className="module-date">{item.date}</div>
+        <div className={`week-row ${item.isExam ? 'exam-row' : ''}`}>
+            <div className="week-info">
+                <h3>Week {item.week}</h3>
+                <p>{item.date}</p>
             </div>
-            
-            <div className="module-content" style={{ maxHeight: isOpen ? '1000px' : '0' }}>
-                <div className="content-inner">
-                    {item.topics && item.topics.length > 0 && (
-                        <div>
-                            <strong>Core Topics:</strong>
-                            <ul className="topic-list">
-                                {item.topics.map((t, i) => <li key={i}>{t}</li>)}
-                            </ul>
+
+            <div className="split-container">
+                {/* LECTURE COLUMN */}
+                <div className={`collapsible-panel lecture ${isLectureOpen ? 'open' : ''}`}>
+                    <div className="panel-header" onClick={() => setIsLectureOpen(!isLectureOpen)}>
+                        <div className="panel-label">LECTURE</div>
+                        <h4>{item.lectureTitle}</h4>
+                        <span className="toggle-icon">{isLectureOpen ? '−' : '+'}</span>
+                    </div>
+                    {isLectureOpen && (
+                        <div className="panel-content">
+                            <strong>Topics:</strong>
+                            <ul>{item.lectureTopics.map((t, i) => <li key={i}>{t}</li>)}</ul>
+                            <p className="outcome-text"><strong>Outcome:</strong> {item.lectureOutcome}</p>
+                            {item.lectureTitle.includes("Monolithic") && (
+                                <div className="diagram-zone">
+
+[Image of Monolithic vs Microservices Architecture]
+</div>
+                            )}
+                            {item.lectureTitle.includes("BPMN") && (
+                                <div className="diagram-zone"></div>
+                            )}
+                            {item.lectureTitle.includes("SysML") && (
+                                <div className="diagram-zone"></div>
+                            )}
                         </div>
                     )}
+                </div>
 
-                    {/* Diagram Cues */}
-                    <div className="diagram-placeholder" style={{ color: 'var(--primary)', fontStyle: 'italic', margin: '10px 0' }}>
-                        {item.lab.includes("Payment") && <div></div>}
-                        {item.lab.includes("BPMN") && <div>
-
-[Image of BPMN workflow diagram]
-</div>}
-                        {item.lab.includes("Strapi") && <div></div>}
-                        {item.lab.includes("RFID") && <div></div>}
+                {/* LAB COLUMN */}
+                <div className={`collapsible-panel lab ${isLabOpen ? 'open' : ''}`}>
+                    <div className="panel-header" onClick={() => setIsLabOpen(!isLabOpen)}>
+                        <div className="panel-label">LABORATORY</div>
+                        <h4>{item.labTitle}</h4>
+                        <span className="toggle-icon">{isLabOpen ? '−' : '+'}</span>
                     </div>
-                    
-                    {item.outcome && <div className="outcome-box"><strong>Objective:</strong> {item.outcome}</div>}
-                    
-                    {item.labDetails && (
-                        <div className="lab-details">
-                            <strong>{item.labDetails.title}</strong>
-                            <ul className="topic-list">
-                                {item.labDetails.items.map((d, i) => <li key={i}>{d}</li>)}
-                            </ul>
+                    {isLabOpen && (
+                        <div className="panel-content">
+                            <p><strong>Technical Focus:</strong> {item.labFocus}</p>
+                            <p><strong>Diagrams:</strong> {item.labDiagrams}</p>
+                            <p><strong>Activity:</strong> {item.labActivity}</p>
+                            
+                            {item.labTitle.includes("High-Level") && (
+                                <div className="diagram-zone"></div>
+                            )}
+                            {item.labTitle.includes("Payment") && (
+                                <div className="diagram-zone"></div>
+                            )}
+                            {item.labTitle.includes("Message Queue") && (
+                                <div className="diagram-zone"></div>
+                            )}
+                            {item.labTitle.includes("RFID") && (
+                                <div className="diagram-zone"></div>
+                            )}
                         </div>
                     )}
                 </div>
@@ -391,37 +286,29 @@ const ScheduleItem = ({ item }) => {
 };
 
 const ScheduleList = () => (
-    <div className="container" id="schedule" style={{paddingTop: 0}}>
+    <div className="container" id="schedule">
         <div className="section-header">
-            <h2>Weekly Schedule</h2>
-            <p>Tue (Lab) / Thu (Lecture) Format • Spring 2026</p>
-        </div>
-        <div className="schedule-header-row">
-            <div>Lecture / Topic (Thu)</div>
-            <div>Lab Activity (Tue)</div>
-            <div style={{textAlign: 'right'}}>Dates</div>
+            <h2>Course Schedule 2026</h2>
+            <p>Balanced theory and hands-on laboratory application.</p>
         </div>
         {COURSE_DATA.map((item, index) => <ScheduleItem key={index} item={item} />)}
     </div>
 );
 
-const Footer = () => (
-    <footer>
-        <p>&copy; 2026 Systems Integration & Architecture • Spring Semester</p>
-    </footer>
-);
-
+// --- MAIN APP ---
 const App = () => (
     <React.Fragment>
         <Navbar />
-        <Header />
-        <CourseDescription />
-        <MCOSection />
+        <header>
+            <h1>Systems Integration & Architecture</h1>
+            <p>CS405 • Spring Semester 2026</p>
+        </header>
         <ScheduleList />
-        <Footer />
+        <footer>
+            <p>&copy; 2026 Systems Integration Department</p>
+        </footer>
     </React.Fragment>
 );
 
-// --- RENDER ---
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
