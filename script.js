@@ -1,281 +1,285 @@
+/**
+ * SIA 2026 - Course Schedule Script
+ * Features: Dual-collapsible columns, Responsive Grid, and instructional Diagram cues.
+ */
+
 // --- DATA CONFIGURATION ---
 const COURSE_DATA = [
     {
         week: 1,
         date: "Jan 6 / Jan 8",
-        lectureTitle: "Course Introduction & Foundations of SIA",
-        lectureTopics: ["Role of a system architect", "Overview of SIA", "Monolithic vs microservices overview"],
-        lectureOutcome: "Establish architectural thinking before coding.",
-        labTitle: "Lab 1: High-Level & Low-Level Design",
-        labFocus: "System scope, layers, boundaries",
-        labDiagrams: "System Context Diagram, HLD, LLD",
-        labActivity: "Design critique session"
+        lecture: {
+            title: "Course Introduction & Foundations of SIA",
+            content: "Orientation, role of a system architect, and architectural layers.",
+            note: "Alignment: Orientation"
+        },
+        lab: {
+            title: "Lab 1: Introduction to SIA",
+            content: "Environment setup and baseline system scoping."
+        }
     },
     {
         week: 2,
         date: "Jan 13 / Jan 15",
-        lectureTitle: "Roles and Tasks of a System Architect",
-        lectureTopics: ["Responsibilities & Skills", "Decision-making in architecture", "Stakeholder communication"],
-        lectureOutcome: "Understanding the architect's position in the SDLC.",
-        labTitle: "Lab 2: User Authentication (Vanilla PHP)",
-        labFocus: "Registration, login, sessions",
-        labDiagrams: "UML Use Case Diagram, ER Diagram",
-        labActivity: "IAM case discussion"
+        lecture: {
+            title: "Roles and Tasks of a System Architect",
+            content: "Decision-making, stakeholder management, and technical leadership.",
+            note: "Alignment: Role-centric framing"
+        },
+        lab: {
+            title: "Lab 2: Architect Role Exploration",
+            content: "Case studies on architectural failure vs. success."
+        }
     },
     {
         week: 3,
         date: "Jan 20 / Jan 22",
-        lectureTitle: "Monolithic vs Microservices Architecture",
-        lectureTopics: ["Monolithic structure", "Microservices principles", "Trade-off analysis"],
-        lectureOutcome: "Strategic choosing of architectural patterns.",
-        labTitle: "Lab 3: Secure Auth Modeling",
-        labFocus: "CAPTCHA, OTP flows",
-        labDiagrams: "Sequence Diagram, Activity Diagram",
-        labActivity: "Auth attack walkthrough"
+        lecture: {
+            title: "Monolithic vs Microservices Architecture",
+            content: "Scalability trade-offs and structural differences.",
+            note: "Alignment: Architectural grounding"
+        },
+        lab: {
+            title: "Lab 3: Monolithic System Exercise",
+            content: "Analyzing legacy monolithic codebases."
+        }
     },
     {
         week: 4,
         date: "Jan 27 / Jan 29",
-        lectureTitle: "System vs Software Architecture",
-        lectureTopics: ["Modeling Perspectives", "C4 Model", "Viewpoints (Logical, Physical)"],
-        lectureOutcome: "Differentiating high-level systems from code structure.",
-        labTitle: "Lab 4: Monolithic Design & Scaffold",
-        labFocus: "Layered monolith, base code, schema",
-        labDiagrams: "Layered Architecture Diagram, ER Diagram",
-        labActivity: "Base code walkthrough"
+        lecture: {
+            title: "System vs Software Architecture",
+            content: "Modeling perspective: boundaries, high-level views, and components.",
+            note: "Alignment: Legacy constraints + boundaries"
+        },
+        lab: {
+            title: "Lab 4: Legacy CMS Extension (Week 1)",
+            content: "Implement Product CRUD (admin) and Listing (user) using Procedural PHP."
+        }
     },
     {
         week: 5,
         date: "Feb 3 / Feb 5",
-        lectureTitle: "Business Process Modeling with BPMN",
-        lectureTopics: ["BPMN elements", "Orchestration vs Choreography", "Process mapping"],
-        lectureOutcome: "Aligning technical flows with business needs.",
-        labTitle: "Lab 5: PHP OOP Implementation",
-        labFocus: "OOP services, repositories",
-        labDiagrams: "Design-to-Code Traceability Diagram",
-        labActivity: "Refactoring demo"
+        lecture: {
+            title: "Business Process Modeling with BPMN",
+            content: "Modeling exact flows for transactions and logistics.",
+            note: "Alignment: BPMN models implemented cart flows"
+        },
+        lab: {
+            title: "Lab 5: Legacy CMS Extension (Week 2)",
+            content: "Implement session-based Cart and Order processing with DB persistence."
+        }
     },
     {
         week: 6,
         date: "Feb 10 / Feb 12",
-        lectureTitle: "UML for System Modeling",
-        lectureTopics: ["Use Case, Class, and Sequence Diagrams", "Behavioral modeling"],
-        lectureOutcome: "Standardizing architectural communication.",
-        labTitle: "Lab 6: Payment Gateway Integration",
-        labFocus: "Stripe checkout, webhooks",
-        labDiagrams: "Sequence Diagram, Trust Boundary Diagram",
-        labActivity: "Webhook failure analysis"
+        lecture: {
+            title: "UML for System Modeling",
+            content: "Use Case, Class, and Sequence Diagrams.",
+            note: "Alignment: Model the CMS + Cart system"
+        },
+        lab: {
+            title: "Lab 6: UML Diagrams",
+            content: "Drafting structural and behavioral models for the legacy extension."
+        }
     },
     {
         week: 7,
         date: "Feb 17 / Feb 19",
-        lectureTitle: "SysML for Systems Architecture",
-        lectureTopics: ["SysML vs UML", "Block Definition Diagrams", "Internal Blocks"],
-        lectureOutcome: "Modeling complex system-of-systems.",
-        labTitle: "Lab 7: API Programming Fundamentals",
-        labFocus: "REST APIs from monolith",
-        labDiagrams: "API Sequence Diagram, Component Diagram",
-        labActivity: "REST anti-patterns"
+        lecture: {
+            title: "SysML for Systems Architecture",
+            content: "Structural modeling and system requirements tracking.",
+            note: "Alignment: Structural modeling"
+        },
+        lab: {
+            title: "Lab 7: Integration Flow Modeling",
+            content: "Mapping how the CMS talks to external data sources."
+        }
     },
     {
         week: 8,
         date: "Feb 24 / Feb 26",
-        lectureTitle: "Modeling System Interactions",
-        lectureTopics: ["UML + BPMN synthesis", "Integration logic", "Data flow"],
-        lectureOutcome: "Mapping end-to-end interactions across boundaries.",
-        labTitle: "Lab 8: Microservice Implementation",
-        labFocus: "Decompose monolith into microservices",
-        labDiagrams: "Bounded Context Diagram, Deployment Diagram",
-        labActivity: "Monolith vs microservices trade-off discussion"
+        lecture: {
+            title: "Modeling System Interactions & Integration Flows",
+            content: "Synthesizing UML and BPMN into a cohesive view.",
+            note: "Alignment: UML + BPMN Synthesis"
+        },
+        lab: {
+            title: "Lab 8: End-to-End Interaction Modeling",
+            content: "Validating transaction flows across system boundaries."
+        }
     },
     {
         week: 9,
         date: "Mar 3 / Mar 5",
         isExam: true,
-        lectureTitle: "Midterm Examination",
-        lectureTopics: ["No new lecture content"],
-        lectureOutcome: "Exam period: Mar 5–7",
-        labTitle: "Midterm Assessment",
-        labFocus: "Review of Weeks 1-8",
-        labDiagrams: "All previous diagrams",
-        labActivity: "Practical exam preparation"
+        lecture: { title: "Midterm Exam", content: "No lecture content." },
+        lab: { title: "Lab 9: Midterm Review", content: "Finalizing and debugging CMS extensions." }
     },
     {
         week: 10,
         date: "Mar 10 / Mar 12",
-        lectureTitle: "Scalability Fundamentals",
-        lectureTopics: ["Vertical vs Horizontal scaling", "Stateless services"],
-        lectureOutcome: "Designing for growth and high availability.",
-        labTitle: "Lab 9: Strapi CMS Integration",
-        labFocus: "Headless CMS integration",
-        labDiagrams: "Component Diagram, Deployment Diagram",
-        labActivity: "Strapi demo"
+        lecture: {
+            title: "Scalability Fundamentals",
+            content: "Vertical vs. Horizontal scaling, statelessness.",
+            note: "Alignment: Conceptual shift"
+        },
+        lab: {
+            title: "Lab 10: Integration Pattern Exercises",
+            content: "Designing for high-availability."
+        }
     },
     {
         week: 11,
         date: "Mar 17 / Mar 19",
-        lectureTitle: "Load Balancing & Caching",
-        lectureTopics: ["Load distribution algorithms", "Caching strategies"],
-        lectureOutcome: "Optimizing system performance and throughput.",
-        labTitle: "Lab 10: Message Queue Fundamentals",
-        labFocus: "Async messaging",
-        labDiagrams: "Event Flow Diagram, Queue Architecture Diagram",
-        labActivity: "Sync vs async demo"
+        lecture: {
+            title: "Load Balancing & Caching",
+            content: "Managing traffic and optimizing performance.",
+            note: "Alignment: Distributed concerns"
+        },
+        lab: {
+            title: "Lab 11: Messaging & Coordination",
+            content: "Asynchronous processing and message queues."
+        }
     },
     {
         week: 12,
         date: "Mar 24 / Mar 26",
-        lectureTitle: "Data Management in Distributed Systems",
-        lectureTopics: ["Database replication", "CAP Theorem"],
-        lectureOutcome: "University Days Mar 23-27 (Limited Classes).",
-        labTitle: "Lab 11: Email Service Integration",
-        labFocus: "Queued email sending",
-        labDiagrams: "Sequence Diagram, Component Diagram",
-        labActivity: "Deliverability discussion"
+        lecture: {
+            title: "Data Management in Distributed Systems",
+            content: "Consistency, replication, and CAP Theorem.",
+            note: "University Days (Mar 23–27)"
+        },
+        lab: {
+            title: "Lab 12: Data Modeling",
+            content: "Advanced relational and non-relational modeling."
+        }
     },
     {
         week: "Break",
         date: "Mar 27 - Apr 3",
         isBreak: true,
-        lectureTitle: "Holy Week Break",
-        labTitle: "No Classes"
+        lecture: { title: "Holy Week Break", content: "No classes." },
+        lab: { title: "No Lab", content: "" }
     },
     {
         week: 13,
         date: "Apr 7 / Apr 9",
-        lectureTitle: "Modeling Security & Trust Boundaries",
-        lectureTopics: ["Threat modeling", "Trust zones", "OAuth flows"],
-        lectureOutcome: "Securing the integration perimeter.",
-        labTitle: "Lab 12: Logistics & ERP Integration",
-        labFocus: "ERP simulation",
-        labDiagrams: "BPMN, Integration Architecture Diagram",
-        labActivity: "ERP walkthrough"
+        lecture: {
+            title: "Modeling Security & Trust Boundaries",
+            content: "Security-by-design and boundary analysis.",
+            note: "Alignment: Security views"
+        },
+        lab: {
+            title: "Lab 13: Security Modeling",
+            content: "Defining trust zones for the integrated system."
+        }
     },
     {
         week: 14,
         date: "Apr 14 / Apr 16",
-        lectureTitle: "Architectural Documentation & Governance",
-        lectureTopics: ["ADRs (Decision Records)", "Stakeholder communication"],
-        lectureOutcome: "Formalizing design choices.",
-        labTitle: "Lab 13: Product Search Integration",
-        labFocus: "Algolia search",
-        labDiagrams: "System Interaction Diagram",
-        labActivity: "Search tuning"
+        lecture: {
+            title: "Architectural Documentation & Governance",
+            content: "Writing ADRs and maintenance guidelines.",
+            note: "Alignment: Documentation"
+        },
+        lab: {
+            title: "Lab 14: Documentation Exercises",
+            content: "Drafting the final architectural specification."
+        }
     },
     {
         week: 15,
         date: "Apr 21 / Apr 23",
-        lectureTitle: "Modeling Legacy Systems & Case Studies",
-        lectureTopics: ["Strangler Fig pattern", "System modernization"],
-        lectureOutcome: "Planning for legacy evolution.",
-        labTitle: "Lab 14 & 15: Mobile & Error Monitoring",
-        labFocus: "API reuse & Incident Flow",
-        labDiagrams: "API Gateway Diagram, Incident Flow Diagram",
-        labActivity: "Failure injection"
+        lecture: {
+            title: "Modeling Legacy Systems & Case Studies",
+            content: "End-to-end review of modern and legacy integration.",
+            note: "Alignment: Synthesis"
+        },
+        lab: {
+            title: "Lab 15: Legacy Systems / Case Prep",
+            content: "Preparing final project defenses."
+        }
     },
     {
         week: 16,
         date: "Apr 28 / Apr 30",
         isExam: true,
-        lectureTitle: "Final Project Presentations",
-        lectureTopics: ["Design defense session"],
-        lectureOutcome: "Validation of architectural synthesis.",
-        labTitle: "Lab 16 & 17: RFID & Final Review",
-        labFocus: "RFID integration & Synthesis",
-        labDiagrams: "Hardware–Software Interaction Diagram, Full System Arch",
-        labActivity: "Design defense"
+        lecture: { title: "Final Project Presentations", content: "Demo day." },
+        lab: { title: "Lab 16: Final Project Preparation", content: "Final technical polish." }
     }
 ];
 
-// --- REACT COMPONENTS ---
-
-const Navbar = () => (
-    <nav>
-        <div className="logo">SYS<span>ARCH</span></div>
-        <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#mco">Outputs</a>
-            <a href="#schedule">Schedule</a>
-        </div>
-        <button className="btn">Login</button>
-    </nav>
-);
+// --- COMPONENTS ---
 
 const ScheduleItem = ({ item }) => {
-    const [isLectureOpen, setIsLectureOpen] = React.useState(false);
-    const [isLabOpen, setIsLabOpen] = React.useState(false);
+    const [labOpen, setLabOpen] = React.useState(false);
+    const [lecOpen, setLecOpen] = React.useState(false);
 
     if (item.isBreak) {
         return (
-            <div className="module break">
-                <div className="module-header">
-                    <div className="module-title"><span>{item.week}</span> {item.lectureTitle}</div>
-                    <div className="module-date">{item.date}</div>
-                </div>
+            <div className="week-row break">
+                <div className="week-label">HOLIDAY</div>
+                <div className="holiday-text">{item.date}: {item.lecture.title}</div>
             </div>
         );
     }
 
     return (
         <div className={`week-row ${item.isExam ? 'exam-row' : ''}`}>
-            <div className="week-info">
-                <h3>Week {item.week}</h3>
-                <p>{item.date}</p>
+            <div className="week-header">
+                <div className="week-num">WEEK {item.week}</div>
+                <div className="week-dates">{item.date}</div>
             </div>
 
-            <div className="split-container">
-                {/* LECTURE COLUMN */}
-                <div className={`collapsible-panel lecture ${isLectureOpen ? 'open' : ''}`}>
-                    <div className="panel-header" onClick={() => setIsLectureOpen(!isLectureOpen)}>
-                        <div className="panel-label">LECTURE</div>
-                        <h4>{item.lectureTitle}</h4>
-                        <span className="toggle-icon">{isLectureOpen ? '−' : '+'}</span>
+            <div className="split-grid">
+                {/* TUESDAY LAB */}
+                <div className={`collapsible-box lab ${labOpen ? 'active' : ''}`}>
+                    <div className="box-trigger" onClick={() => setLabOpen(!labOpen)}>
+                        <div className="trigger-top">
+                            <span className="badge">TUE - LAB</span>
+                            <span className="toggle-icon">{labOpen ? '−' : '+'}</span>
+                        </div>
+                        <h4>{item.lab.title}</h4>
                     </div>
-                    {isLectureOpen && (
-                        <div className="panel-content">
-                            <strong>Topics:</strong>
-                            <ul>{item.lectureTopics.map((t, i) => <li key={i}>{t}</li>)}</ul>
-                            <p className="outcome-text"><strong>Outcome:</strong> {item.lectureOutcome}</p>
-                            {item.lectureTitle.includes("Monolithic") && (
-                                <div className="diagram-zone">
-
-[Image of Monolithic vs Microservices Architecture]
-</div>
-                            )}
-                            {item.lectureTitle.includes("BPMN") && (
-                                <div className="diagram-zone"></div>
-                            )}
-                            {item.lectureTitle.includes("SysML") && (
-                                <div className="diagram-zone"></div>
+                    {labOpen && (
+                        <div className="box-content">
+                            <p>{item.lab.content}</p>
+                            {item.week === 6 && (
+                                <div className="diagram-tip">
+                                    
+                                </div>
                             )}
                         </div>
                     )}
                 </div>
 
-                {/* LAB COLUMN */}
-                <div className={`collapsible-panel lab ${isLabOpen ? 'open' : ''}`}>
-                    <div className="panel-header" onClick={() => setIsLabOpen(!isLabOpen)}>
-                        <div className="panel-label">LABORATORY</div>
-                        <h4>{item.labTitle}</h4>
-                        <span className="toggle-icon">{isLabOpen ? '−' : '+'}</span>
+                {/* THURSDAY LECTURE */}
+                <div className={`collapsible-box lecture ${lecOpen ? 'active' : ''}`}>
+                    <div className="box-trigger" onClick={() => setLecOpen(!lecOpen)}>
+                        <div className="trigger-top">
+                            <span className="badge">THU - LEC</span>
+                            <span className="toggle-icon">{lecOpen ? '−' : '+'}</span>
+                        </div>
+                        <h4>{item.lecture.title}</h4>
                     </div>
-                    {isLabOpen && (
-                        <div className="panel-content">
-                            <p><strong>Technical Focus:</strong> {item.labFocus}</p>
-                            <p><strong>Diagrams:</strong> {item.labDiagrams}</p>
-                            <p><strong>Activity:</strong> {item.labActivity}</p>
-                            
-                            {item.labTitle.includes("High-Level") && (
-                                <div className="diagram-zone"></div>
+                    {lecOpen && (
+                        <div className="box-content">
+                            <p>{item.lecture.content}</p>
+                            {item.lecture.note && (
+                                <div className="alignment-note">
+                                    <strong>Notes:</strong> {item.lecture.note}
+                                </div>
                             )}
-                            {item.labTitle.includes("Payment") && (
-                                <div className="diagram-zone"></div>
+                            {item.week === 5 && (
+                                <div className="diagram-tip">
+                                    
+                                </div>
                             )}
-                            {item.labTitle.includes("Message Queue") && (
-                                <div className="diagram-zone"></div>
-                            )}
-                            {item.labTitle.includes("RFID") && (
-                                <div className="diagram-zone"></div>
+                            {item.week === 13 && (
+                                <div className="diagram-tip">
+                                    
+                                </div>
                             )}
                         </div>
                     )}
@@ -285,30 +289,34 @@ const ScheduleItem = ({ item }) => {
     );
 };
 
-const ScheduleList = () => (
-    <div className="container" id="schedule">
-        <div className="section-header">
-            <h2>Course Schedule 2026</h2>
-            <p>Balanced theory and hands-on laboratory application.</p>
-        </div>
-        {COURSE_DATA.map((item, index) => <ScheduleItem key={index} item={item} />)}
-    </div>
-);
-
 // --- MAIN APP ---
-const App = () => (
-    <React.Fragment>
-        <Navbar />
-        <header>
-            <h1>Systems Integration & Architecture</h1>
-            <p>CS405 • Spring Semester 2026</p>
-        </header>
-        <ScheduleList />
-        <footer>
-            <p>&copy; 2026 Systems Integration Department</p>
-        </footer>
-    </React.Fragment>
-);
+const App = () => {
+    return (
+        <div className="sia-app">
+            <nav className="sia-nav">
+                <div className="brand">SYSARCH 2026</div>
+                <div className="nav-info">CS405 • Systems Integration</div>
+            </nav>
+
+            <header className="sia-hero">
+                <h1>Course Schedule</h1>
+                <p>Tuesday (Lab) & Thursday (Lecture) Alignment</p>
+            </header>
+
+            <main className="container">
+                <div className="schedule-list">
+                    {COURSE_DATA.map((item, idx) => (
+                        <ScheduleItem key={idx} item={item} />
+                    ))}
+                </div>
+            </main>
+
+            <footer>
+                <p>&copy; 2026 Information Technology Department • Final Exams: May 4–5</p>
+            </footer>
+        </div>
+    );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
