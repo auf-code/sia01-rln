@@ -1,7 +1,7 @@
 # Systems Integration & Architecture (SIA01)
 
 ## 📘 Course Website
-**[Click here to view the Course Website](https://auf-code.github.io/sia01/)**
+**[Click here to view the Course Website](https://auf-code.github.io/sia01-rln/)**
 
 *(Note: Replace YOUR-USERNAME above with your actual GitHub username)*
 
