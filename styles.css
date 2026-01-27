@@ -1,61 +1,201 @@
-/* Schedule Row Container */
-.week-row {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 5px solid #004a99;
+:root {
+    --primary-blue: #004a99;
+    --secondary-orange: #e65100;
+    --lab-bg: #f0f9ff;
+    --lec-bg: #fff8f1;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --border-color: #e2e8f0;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
-/* The 2-Column Grid */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #f1f5f9;
+    padding-bottom: 50px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- NAV & HERO --- */
+.sia-nav {
+    background: var(--primary-blue);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.brand { font-weight: 800; letter-spacing: 1px; }
+
+.sia-hero {
+    background: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sia-hero h1 { font-size: 2.5rem; color: var(--primary-blue); }
+
+/* --- SCHEDULE ROW --- */
+.week-row {
+    background: transparent;
+    margin-bottom: 3rem;
+}
+
+.week-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.week-num {
+    background: var(--primary-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.week-dates {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* --- THE SPLIT GRID --- */
 .split-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 20px;
-    margin-top: 10px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
 }
 
-/* Mobile Stack */
-@media (max-width: 768px) {
-    .split-grid {
-        grid-template-columns: 1fr;
-    }
+/* Mobile Fallback */
+@media (max-width: 850px) {
+    .split-grid { grid-template-columns: 1fr; }
 }
 
+/* --- COLLAPSIBLE BOXES --- */
 .collapsible-box {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
     overflow: hidden;
-    transition: all 0.3s ease;
+}
+
+.collapsible-box:hover {
+    transform: translateY(-2px);
+    border-color: #cbd5e1;
 }
 
 .box-trigger {
-    padding: 15px;
+    padding: 20px;
     cursor: pointer;
+    user-select: none;
 }
 
-.box-trigger:hover {
-    background: #f1f1f1;
+.trigger-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
 .badge {
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: #eee;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
 }
 
-.lab .badge { background: #e1f5fe; color: #01579b; }
-.lecture .badge { background: #fff3e0; color: #e65100; }
+/* Lab Specifics */
+.lab { border-top: 6px solid #3b82f6; }
+.lab .badge { background: var(--lab-bg); color: #2563eb; }
+
+/* Lecture Specifics */
+.lecture { border-top: 6px solid #f59e0b; }
+.lecture .badge { background: var(--lec-bg); color: #d97706; }
+
+.collapsible-box h4 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+.box-content {
+    padding: 0 20px 20px 20px;
+    border-top: 1px solid #f1f5f9;
+    background: #fafafa;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+/* --- EXAM & BREAK OVERRIDES --- */
+.exam-row { opacity: 0.9; }
+.exam-row .collapsible-box { background: #fff1f2; border-top-color: #e11d48; }
+
+.week-row.break {
+    text-align: center;
+    border: 2px dashed var(--border-color);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.holiday-text {
+    font-weight: bold;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- INSTRUCTIONAL ELEMENTS --- */
+.alignment-note {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 3px solid var(--secondary-orange);
+}
 
 .diagram-tip {
     margin-top: 15px;
-    padding: 10px;
-    background: #f0fdf4;
-    border: 1px dashed #22c55e;
-    color: #15803d;
+    padding: 12px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    color: #065f46;
     font-size: 0.85rem;
-    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-light);
+    font-size: 0.85rem;
 }
