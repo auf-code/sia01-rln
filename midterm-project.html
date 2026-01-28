@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Midterm Project: Systems Integration and Architecture</title>
+    <title>Terminal Assessment 1: Guide & Template</title>
     <style>
         :root {
             --primary: #2563eb;
             --secondary: #1e293b;
-            --accent: #f59e0b;
-            --bg: #f8fafc;
+            --accent: #0f172a;
+            --bg: #f1f5f9;
             --text: #334155;
             --white: #ffffff;
+            --sample-bg: #f8fafc;
+            --purpose-bg: #eff6ff;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background-color: var(--bg);
@@ -26,231 +28,234 @@
         header {
             background-color: var(--secondary);
             color: var(--white);
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
             text-align: center;
-            border-bottom: 4px solid var(--primary);
+            border-bottom: 5px solid var(--primary);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
         }
 
-        .card {
+        .section-card {
             background: var(--white);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
-        h1 { margin: 0; font-size: 2rem; }
-        h2 { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 1rem; margin-top: 2rem; }
-        h3 { color: var(--secondary); }
+        h1 { margin: 0; font-size: 2.2rem; }
+        h2 { color: var(--primary); font-size: 1.8rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-top: 0; }
+        h3 { color: var(--secondary); margin-top: 1.5rem; }
 
-        .meta-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-            background: #f1f5f9;
-            padding: 1rem;
+        .outline-item {
+            margin-bottom: 3rem;
+            padding-left: 1rem;
+            border-left: 4px solid #cbd5e1;
+        }
+
+        .purpose-box {
+            background-color: var(--purpose-bg);
             border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary);
         }
 
-        .meta-item b { color: var(--secondary); }
+        .sample-box {
+            background-color: var(--sample-bg);
+            border: 1px dashed #cbd5e1;
+            border-radius: 6px;
+            padding: 1.5rem;
+            font-style: italic;
+            position: relative;
+        }
 
-        .no-coding {
-            background: #fee2e2;
-            color: #991b1b;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+        .sample-box::before {
+            content: "SAMPLE CONTENT";
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: #cbd5e1;
+            color: #475569;
+            font-size: 0.7rem;
+            padding: 2px 8px;
             font-weight: bold;
-            display: inline-block;
+            border-radius: 4px;
+            font-style: normal;
+        }
+
+        .diagram-placeholder {
+            background: #fdf2f2;
+            border: 2px dashed #f87171;
+            color: #991b1b;
+            padding: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .ref-category h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
         }
 
         ul { padding-left: 1.2rem; }
         li { margin-bottom: 0.5rem; }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .option-card {
-            border: 1px solid #e2e8f0;
-            padding: 1rem;
-            border-radius: 6px;
-            transition: transform 0.2s;
-        }
-
-        .option-card:hover { border-color: var(--primary); transform: translateY(-3px); }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        th { background-color: #f1f5f9; }
-
-        .pro-tip {
-            background: #fffbeb;
-            border-left: 4px solid var(--accent);
-            padding: 1rem;
-            margin: 1rem 0;
-            font-style: italic;
-        }
-
-        @media (max-width: 600px) {
-            .meta-grid { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Midterm Project</h1>
-    <p>Systems Architecture & Integration Documentation Project</p>
+    <h1>Terminal Assessment 1</h1>
+    <p>Systems Architecture & Integration Documentation Guide</p>
 </header>
 
 <div class="container">
-    <div class="card">
-        <div class="meta-grid">
-            <div class="meta-item"><b>Course:</b> Systems Integration and Architecture</div>
-            <div class="meta-item"><b>Type:</b> Individual Assessment</div>
-            <div class="meta-item"><b>Output:</b> PDF Documentation</div>
-            <div class="meta-item"><span class="no-coding">❌ No Coding Required</span></div>
-        </div>
+    <div class="section-card">
+        <h2>Document Outline & Sample Guide</h2>
+        <p>Use the following structure for your final PDF. The blue boxes explain what to write, and the gray boxes provide an example based on a University Enrollment System.</p>
 
-        <h2>1. Project Overview</h2>
-        <p>Analyze a real-world systems problem and produce a formal <b>Systems Architecture and Systems Integration</b> document. Think like an architect: define boundaries, identify subsystems, model processes, and justify decisions.</p>
-
-        <h2>2. Project Objectives</h2>
-        <ul>
-            <li>Analyze real-world problems from a systems perspective.</li>
-            <li>Design high-level system architectures.</li>
-            <li>Model business processes and system interactions.</li>
-            <li>Communicate decisions using standard technical diagrams.</li>
-        </ul>
-
-        <h2>3. Scope & Constraints</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-            <div>
-                <h3 style="color: #166534;">✅ Required</h3>
-                <ul>
-                    <li>Multiple interacting subsystems</li>
-                    <li>At least one external service</li>
-                    <li>Clear data exchange</li>
-                </ul>
+        <div class="outline-item">
+            <h3>1. Introduction</h3>
+            <div class="purpose-box">
+                <strong>Purpose:</strong> Explain what the system is and why this document exists.
             </div>
-            <div>
-                <h3 style="color: #991b1b;">🚫 Not Allowed</h3>
-                <ul>
-                    <li>Simple CRUD applications</li>
-                    <li>Single-user systems</li>
-                    <li>UI/Mobile-only designs</li>
-                </ul>
+            <div class="sample-box">
+                This document presents the proposed systems architecture and integration design for an Online Enrollment and Payment System for a university. The purpose is to describe the system context, architectural structure, and key design decisions prior to implementation. It is intended for stakeholders, system analysts, and architects.
             </div>
         </div>
-    </div>
 
-    <div class="card">
-        <h2>4. Approved Project Options</h2>
-        <p>Choose <b>ONE</b> category and system to focus on:</p>
-        <div class="options-grid">
-            <div class="option-card">
-                <h3>Option A: Transactional</h3>
-                <ul>
-                    <li>E-commerce Fulfillment</li>
-                    <li>Enrollment & Payment</li>
-                    <li>Food Delivery Dispatch</li>
-                </ul>
+        <div class="outline-item">
+            <h3>2. Problem Description & Objectives</h3>
+            <div class="purpose-box">
+                <strong>Purpose:</strong> Clearly define the problem being solved and the goals of the system.
             </div>
-            <div class="option-card">
-                <h3>Option B: Platforms</h3>
-                <ul>
-                    <li>Ride-hailing Platform</li>
-                    <li>Online Marketplace</li>
-                    <li>LMS with Integrations</li>
-                </ul>
+            <div class="sample-box">
+                Many universities rely on disconnected systems for enrollment and billing. These require manual reconciliation, resulting in delays and data inconsistencies. The objective is to integrate these services into a unified platform that supports real-time data exchange and improves operational efficiency.
             </div>
-            <div class="option-card">
-                <h3>Option C: Enterprise</h3>
-                <ul>
-                    <li>Hospital Billing</li>
-                    <li>HR & Payroll</li>
-                    <li>University Integration</li>
-                </ul>
+        </div>
+
+        <div class="outline-item">
+            <h3>4. System Context Diagram</h3>
+            <div class="purpose-box">
+                <strong>Purpose:</strong> Show the system’s environment and external interactions.
+            </div>
+            <div class="sample-box">
+                The diagram illustrates the Online Enrollment System as the central hub interacting with Students, Registrar Staff, and an external Payment Gateway.
+            </div>
+            <div class="diagram-placeholder">
+                [Insert System Context Diagram Here]<br>
+                (Visualizing actors + external systems)
+            </div>
+        </div>
+
+        <div class="outline-item">
+            <h3>5. Business Process Model (BPMN)</h3>
+            <div class="purpose-box">
+                <strong>Purpose:</strong> Model the end-to-end business workflow and integration points.
+            </div>
+            <div class="sample-box">
+                The BPMN represents the flow from course selection to payment confirmation. Integration points are highlighted where the system communicates with the payment gateway.
+            </div>
+            <div class="diagram-placeholder">
+                [Insert BPMN Diagram Here]<br>
+                (Focus on the step-by-step logic)
+            </div>
+        </div>
+
+        <div class="outline-item">
+            <h3>6. System Architecture Design</h3>
+            <div class="purpose-box">
+                <strong>Purpose:</strong> Describe the structure of the system and architectural style.
+            </div>
+            <div class="sample-box">
+                The system adopts a modular monolithic architecture. Core components include Enrollment Management, Billing, and Payment Integration modules. This simplifies deployment while allowing future migration to microservices.
+            </div>
+            <div class="diagram-placeholder">
+                [Insert UML Component or C4 Diagram Here]<br>
+                (Visualizing internal modules/containers)
+            </div>
+        </div>
+
+        <div class="outline-item">
+            <h3>7. Integration Design</h3>
+            <div class="purpose-box">
+                <strong>Purpose:</strong> Explain how systems communicate and exchange data.
+            </div>
+            <div class="sample-box">
+                Integration with the payment gateway is implemented using synchronous REST APIs. The system sends payment requests and receives immediate confirmation to trigger enrollment finalization.
+            </div>
+            <div class="diagram-placeholder">
+                [Insert UML Sequence Diagram Here]<br>
+                (Visualizing the time-ordered data exchange)
+            </div>
+        </div>
+
+        <div class="outline-item">
+            <h3>9. Risks & Trade-offs</h3>
+            <div class="purpose-box">
+                <strong>Purpose:</strong> Demonstrate architectural judgment and awareness.
+            </div>
+            <div class="sample-box">
+                <strong>Risk:</strong> Dependency on external payment gateway downtime. <br>
+                <strong>Mitigation:</strong> Implementing retry logic and clear error messaging. <br>
+                <strong>Trade-off:</strong> Monolithic architecture simplifies initial development but limits independent scaling.
             </div>
         </div>
     </div>
 
-    <div class="card">
-        <h2>5. Required Document Outline</h2>
-        <p>Your PDF must follow this structure:</p>
-        
-        <h3>I. Introduction & Problem</h3>
-        <p>Explain the system's purpose, stakeholders, and current pain points.</p>
-
-        <h3>II. System Context Diagram</h3>
-        <p>Visual representation of actors and external systems. <i>(Diagram Required)</i></p>
-
-        <h3>III. Business Process Model (BPMN)</h3>
-        <p>Show the end-to-end flow and system touchpoints. <i>(Diagram Required)</i></p>
-
-        <h3>IV. System Architecture Design</h3>
-        <p>Define the structure (Monolithic vs. Microservices) and rationale. <i>(Component/C4 Diagram Required)</i></p>
-
-        <h3>V. Integration Design</h3>
-        <p>Explain APIs, messaging, and data flow. <i>(Sequence Diagram Required)</i></p>
-
-        <h3>VI. Non-Functional & Risks</h3>
-        <p>Address scalability, performance, and technical trade-offs.</p>
-    </div>
-
-    <div class="card">
-        <h2>6. Diagrams Summary</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Diagram Name</th>
-                    <th>Requirement</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>System Context Diagram</td>
-                    <td>✅ Mandatory</td>
-                </tr>
-                <tr>
-                    <td>BPMN Process Diagram</td>
-                    <td>✅ Mandatory</td>
-                </tr>
-                <tr>
-                    <td>Component / Architecture Diagram</td>
-                    <td>✅ Mandatory</td>
-                </tr>
-                <tr>
-                    <td>Integration Flow / Sequence Diagram</td>
-                    <td>✅ Mandatory</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="pro-tip">
-        <strong>Final Reminder:</strong> This project is about <b>thinking</b>, not building. Clear reasoning and well-explained models matter more than technical complexity.
+    <div class="section-card" style="background: var(--accent); color: white;">
+        <h2 style="color: #60a5fa; border-color: #334155;">Key References</h2>
+        <div class="ref-grid">
+            <div class="ref-category">
+                <h4>Architecture Foundations</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                    <li>• ISO/IEC/IEEE 42010 (Architecture Description)</li>
+                    <li>• Richards & Ford: Fundamentals of Software Architecture</li>
+                    <li>• Maier & Rechtin: The Art of Systems Architecting</li>
+                </ul>
+            </div>
+            <div class="ref-category">
+                <h4>Integration Patterns</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                    <li>• Hohpe & Woolf: Enterprise Integration Patterns</li>
+                    <li>• Martin Fowler: Patterns of Enterprise App Architecture</li>
+                </ul>
+            </div>
+            <div class="ref-category">
+                <h4>Standards & Documentation</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                    <li>• OMG: UML 2.5 & BPMN 2.0 Specifications</li>
+                    <li>• IEEE 1016: Software Design Description</li>
+                    <li>• Arc42 Documentation Template</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
+
+<footer>
+    &copy; 2026 Systems Integration and Architecture | Individual Assessment Project
+</footer>
 
 </body>
 </html>
