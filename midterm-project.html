@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Assessment 1: Comprehensive Project Guide</title>
+    <title>SIA01: Comprehensive Project Guide</title>
     <style>
         :root {
             --primary: #2563eb;
             --secondary: #1e293b;
-            --accent: #0f172a;
             --bg: #f8fafc;
             --text: #334155;
             --white: #ffffff;
-            --sample-bg: #f1f5f9;
+            --sample-bg: #fdfdfd;
             --purpose-bg: #eff6ff;
             --success: #16a34a;
             --danger: #dc2626;
+            --border: #e2e8f0;
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
             color: var(--text);
             background-color: var(--bg);
             margin: 0;
@@ -30,9 +30,9 @@
         header {
             background-color: var(--secondary);
             color: var(--white);
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
-            border-bottom: 5px solid var(--primary);
+            border-bottom: 6px solid var(--primary);
         }
 
         .container {
@@ -44,19 +44,18 @@
         .card {
             background: var(--white);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-bottom: 2rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        h1 { margin: 0; font-size: 2.2rem; }
-        h2 { color: var(--primary); font-size: 1.8rem; margin-top: 0; border-left: 5px solid var(--primary); padding-left: 1rem; }
-        h3 { color: var(--secondary); margin-top: 1.5rem; font-size: 1.3rem; }
+        h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
+        h2 { color: var(--primary); font-size: 1.8rem; margin-top: 0; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--secondary); margin-top: 1.5rem; font-size: 1.4rem; }
 
-        /* Meta Info Grid */
         .meta-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1rem;
             background: #f1f5f9;
             padding: 1.5rem;
@@ -67,105 +66,107 @@
         .no-coding {
             background: #fee2e2;
             color: #991b1b;
-            padding: 0.2rem 0.6rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 4px;
             font-weight: bold;
         }
 
-        /* Scope Styling */
         .scope-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
+            margin: 1.5rem 0;
         }
 
-        @media (max-width: 768px) { .scope-container { grid-template-columns: 1fr; } }
-
-        /* Template/Sample Section */
         .outline-item {
-            margin-bottom: 2.5rem;
-            padding: 1.5rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
+            margin-bottom: 3.5rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .outline-header {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
         }
 
         .purpose-box {
             background-color: var(--purpose-bg);
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 4px;
+            padding: 1.5rem;
+            border-left: 5px solid var(--primary);
             font-size: 0.95rem;
-            border-left: 4px solid var(--primary);
         }
 
         .sample-box {
             background-color: var(--sample-bg);
-            padding: 1rem;
-            margin-top: 0.5rem;
-            border-radius: 4px;
+            padding: 2rem;
             font-style: italic;
-            font-size: 0.95rem;
-            border: 1px dashed #cbd5e1;
+            font-size: 1rem;
+            color: #475569;
+            border-top: 1px dashed var(--border);
         }
 
-        .diagram-req {
-            display: inline-block;
-            margin-top: 10px;
-            background: #fff1f2;
-            color: #be123c;
-            padding: 4px 10px;
-            font-size: 0.8rem;
+        .sample-label {
             font-weight: bold;
-            border-radius: 4px;
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-style: normal;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
         }
 
         th, td {
             text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 15px;
+            border: 1px solid var(--border);
         }
 
-        th { background: #f8fafc; }
+        th { background: #f1f5f9; color: var(--secondary); }
 
         .ref-section {
-            background: #0f172a;
+            background: #1e293b;
             color: #f8fafc;
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 12px;
+            margin-top: 3rem;
         }
 
         .ref-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
-        .ref-grid h4 { color: #60a5fa; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; }
-        .ref-grid ul { list-style: none; padding: 0; font-size: 0.9rem; }
-        .ref-grid li { margin-bottom: 0.8rem; }
+        .ref-grid h4 { color: #60a5fa; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; margin-top: 0; }
+        .ref-grid ul { list-style: none; padding: 0; }
+        .ref-grid li { margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.4; }
 
-        .warning-footer {
+        .video-callout {
             background: #fffbeb;
-            border: 1px solid #fde68a;
-            padding: 1.5rem;
-            text-align: center;
+            border: 2px solid #fde68a;
+            padding: 1rem;
             border-radius: 8px;
-            margin-top: 2rem;
+            margin-top: 1rem;
+            color: #92400e;
             font-weight: bold;
         }
+
+        @media (max-width: 768px) { .scope-container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Terminal Assessment 1</h1>
+    <h1>Midterm Project</h1>
     <p>Systems Architecture & Integration Documentation Project</p>
 </header>
 
@@ -173,36 +174,37 @@
     
     <div class="card">
         <div class="meta-grid">
-            <div><b>Course:</b> Systems Integration & Architecture</div>
+            <div><b>Course:</b> Systems Integration and Architecture</div>
             <div><b>Type:</b> Individual Assessment</div>
-            <div><b>Output:</b> Technical PDF Document</div>
-            <div><span class="no-coding">❌ No Coding Required</span></div>
+            <div><b>Output:</b> Technical Documentation (PDF)</div>
+            <div><span class="no-coding">❌ Coding Required: No</span></div>
         </div>
 
         <h2>1. Project Overview</h2>
-        <p>In this project, you will analyze a real-world systems problem and produce a formal Systems Architecture and Systems Integration document. The focus is not on building the system, but on thinking like a systems architect: defining boundaries, identifying interacting subsystems, modeling business processes, and justifying architectural decisions.</p>
+        <p>In this project, you will analyze a real-world systems problem and produce a formal Systems Architecture and Systems Integration document. The focus is not on building the system, but on thinking like a systems architect: defining system boundaries, identifying interacting subsystems, modeling business processes, and justifying architectural and integration decisions. This project reflects how systems are designed and documented in real organizations before development begins.</p>
 
         <h2>2. Project Objectives</h2>
         <ul>
-            <li>Analyze real-world problems from a systems perspective.</li>
-            <li>Design a high-level system architecture and model business processes.</li>
-            <li>Identify and justify integration mechanisms.</li>
-            <li>Communicate design decisions using standard diagrams.</li>
+            <li>Analyze a real-world problem from a systems perspective</li>
+            <li>Design a high-level system architecture</li>
+            <li>Model business processes and system interactions</li>
+            <li>Identify and justify integration mechanisms</li>
+            <li>Communicate design decisions using standard diagrams and technical documentation</li>
         </ul>
 
         <h2>3. Project Scope & Constraints</h2>
         <div class="scope-container">
-            <div style="border: 1px solid #bbf7d0; padding: 1rem; border-radius: 8px;">
-                <h3 style="color: var(--success); margin-top: 0;">✅ Required Characteristics</h3>
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1.5rem; border-radius: 8px;">
+                <h3 style="color: var(--success); margin-top: 0;">Required Characteristics</h3>
                 <ul>
-                    <li>Multiple interacting subsystems</li>
-                    <li>At least one external system/service</li>
-                    <li>Clear end-to-end business process</li>
-                    <li>Data exchange or integration required</li>
+                    <li>Involve multiple interacting subsystems</li>
+                    <li>Include at least one external system or service</li>
+                    <li>Have a clear end-to-end business process</li>
+                    <li>Require data exchange or integration</li>
                 </ul>
             </div>
-            <div style="border: 1px solid #fecaca; padding: 1rem; border-radius: 8px;">
-                <h3 style="color: var(--danger); margin-top: 0;">🚫 Not Allowed</h3>
+            <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 1.5rem; border-radius: 8px;">
+                <h3 style="color: var(--danger); margin-top: 0;">Not Allowed</h3>
                 <ul>
                     <li>Simple CRUD-only applications</li>
                     <li>Single-user or single-component systems</li>
@@ -215,152 +217,213 @@
 
     <div class="card">
         <h2>4. Approved Project Options</h2>
-        <p>Select <b>ONE</b> from the following or propose a similar one for approval:</p>
+        <p>Select ONE system from the list below or propose a similar system (subject to instructor approval).</p>
         <table>
-            <tr>
-                <th>Category</th>
-                <th>Examples</th>
-            </tr>
-            <tr>
-                <td><b>A. Transactional</b></td>
-                <td>E-commerce fulfillment, Online enrollment/payment, Food delivery dispatch</td>
-            </tr>
-            <tr>
-                <td><b>B. Platform-Based</b></td>
-                <td>Ride-hailing, Online marketplace, LMS with 3rd-party integrations</td>
-            </tr>
-            <tr>
-                <td><b>C. Enterprise</b></td>
-                <td>Hospital billing, HR Payroll/Attendance, University Systems Integration</td>
-            </tr>
-            <tr>
-                <td><b>D. Data-Intensive</b></td>
-                <td>Log aggregation, Sales analytics, Recommendation systems (conceptual)</td>
-            </tr>
-            <tr>
-                <td><b>E. Public/Civic</b></td>
-                <td>Disaster response, Traffic monitoring, Government service portals</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>System Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>A. Transaction-Oriented</b></td>
+                    <td>E-commerce fulfillment, Online enrollment and payment, Food delivery ordering/dispatch</td>
+                </tr>
+                <tr>
+                    <td><b>B. Platform-Based</b></td>
+                    <td>Ride-hailing platform, Online marketplace (buyers, sellers, admin), LMS with 3rd-party integrations</td>
+                </tr>
+                <tr>
+                    <td><b>C. Enterprise Integration</b></td>
+                    <td>Hospital appointment and billing, HR payroll/attendance, University systems integration</td>
+                </tr>
+                <tr>
+                    <td><b>D. Data-Intensive</b></td>
+                    <td>Log aggregation and monitoring, Sales analytics and reporting, Conceptual recommendation system</td>
+                </tr>
+                <tr>
+                    <td><b>E. Public or Civic</b></td>
+                    <td>Disaster response coordination, Traffic monitoring, Government service request portal</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
     <div class="card">
-        <h2>5. Required Document Outline (With Sample Content)</h2>
-        <p>Submit one PDF document following this structure. <i>Note: The gray boxes represent sample content for a University Enrollment system.</i></p>
+        <h2>5. Required Document Template & Content Guide</h2>
+        <p>Your deliverable must be a single PDF. Follow the structure below. <b>Note: Sample content is based on a "University Enrollment" system.</b></p>
 
         <div class="outline-item">
-            <h3>1. Introduction</h3>
-            <div class="purpose-box"><b>Purpose:</b> Explain what the system is and why this document exists.</div>
-            <div class="sample-box">This document presents the proposed architecture for an Online Enrollment and Payment System... intended for stakeholders, developers, and architects.</div>
+            <div class="outline-header"><h3>1. Introduction</h3></div>
+            <div class="purpose-box">
+                <b>Purpose:</b> Explain what the document is about, its intended audience, and the project overview.
+                <div class="video-callout">📽️ Requirement: You must also prepare a 10-15 minutes pre-recorded video presentation of your documentation.</div>
+            </div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                This document presents the proposed systems architecture and integration design for an Online Enrollment and Payment System for a university. The purpose of this document is to describe the system context, architectural structure, integration flows, and key design decisions prior to system implementation. <br><br>
+                This document is intended for stakeholders such as system analysts, developers, and system architects who will be involved in designing or evaluating the system.
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>2. Problem Description & Objectives</h3>
-            <div class="purpose-box"><b>Purpose:</b> Define the problem clearly and state the goals.</div>
-            <div class="sample-box">Current disconnected systems result in manual reconciliation delays. Objective: Unified platform with real-time data exchange.</div>
+            <div class="outline-header"><h3>2. Problem Description & Objectives</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Clearly define the problem being solved, current challenges, and high-level goals.</div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                Many universities currently rely on disconnected systems for enrollment, billing, and payment processing. These systems require manual reconciliation, resulting in delays, data inconsistencies, and poor student experience.<br><br>
+                The objective of the proposed system is to integrate enrollment, billing, and payment services into a unified platform that supports real-time data exchange, reduces manual intervention, and improves operational efficiency.
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>3. Stakeholders & System Scope</h3>
-            <div class="purpose-box"><b>Purpose:</b> Clarify boundaries, actors, and responsibilities.</div>
-            <div class="sample-box">Stakeholders: Students, Registrar, Accounting, Payment Gateway. In-Scope: Billing computation, Enrollment. Out-of-Scope: Academic grading.</div>
+            <div class="outline-header"><h3>3. Stakeholders & System Scope</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Clarify boundaries, identified actors, and in-scope/out-of-scope components.</div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                <b>Stakeholders:</b> Students (end users), Registrar’s Office, Accounting Office, External Payment Gateway, System Administrators. <br><br>
+                <b>In Scope:</b> Course enrollment processing, Billing computation, Payment confirmation integration. <br><br>
+                <b>Out of Scope:</b> Academic grading, Learning management features. <br><br>
+                <b>Assumptions:</b> Payment gateway provides REST APIs; Users have internet access.
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>4. System Context Diagram</h3>
-            <span class="diagram-req">🎨 DIAGRAM REQUIRED</span>
-            <div class="purpose-box"><b>Purpose:</b> Show the system within its environment (actors + external systems).</div>
-            <div class="sample-box">(Sample Description): The diagram shows the Enrollment System interacting with Students and the external Payment Gateway via REST APIs.</div>
+            <div class="outline-header"><h3>4. System Context Diagram</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Show the system within its environment and external interactions. <b>(Diagram Required)</b></div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                The system context diagram illustrates the Online Enrollment System as the central system interacting with external actors such as Students, Registrar Staff, and an external Payment Gateway. Students initiate enrollment requests, while the system exchanges payment confirmation data with the payment service provider.
+                <div style="text-align:center; padding: 20px; color: #94a3b8; border: 1px solid #e2e8f0; margin-top: 10px;">[Insert System Context Diagram Here]</div>
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>5. Business Process Model (BPMN)</h3>
-            <span class="diagram-req">🎨 DIAGRAM REQUIRED</span>
-            <div class="purpose-box"><b>Purpose:</b> Model the end-to-end business flow.</div>
-            <div class="sample-box">(Sample Description): Represents the flow from course selection to billing and final payment confirmation.</div>
+            <div class="outline-header"><h3>5. Business Process Model (BPMN)</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Model the end-to-end business workflow and integration points. <b>(Diagram Required)</b></div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                The BPMN diagram represents the enrollment process starting from course selection, billing generation, payment processing, and enrollment confirmation. Integration points are highlighted where the system communicates with the payment gateway and updates enrollment records.
+                <div style="text-align:center; padding: 20px; color: #94a3b8; border: 1px solid #e2e8f0; margin-top: 10px;">[Insert BPMN Diagram Here]</div>
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>6. System Architecture Design</h3>
-            <span class="diagram-req">🎨 DIAGRAM REQUIRED (Component/C4)</span>
-            <div class="purpose-box"><b>Purpose:</b> Define the overall structure and architectural style.</div>
-            <div class="sample-box">Style: Modular Monolithic. Components: Enrollment Module, Billing Module, User Management.</div>
+            <div class="outline-header"><h3>6. System Architecture Design</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Define the structure of the system, style, and rationale. <b>(UML Component or C4-style Diagram Required)</b></div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                The system adopts a modular monolithic architecture due to the tightly coupled nature of enrollment and billing logic and the limited scale of initial deployment.<br><br>
+                <b>Core components include:</b> Enrollment Management Module, Billing Module, Payment Integration Module, User Management Module.<br><br>
+                This architecture simplifies deployment while allowing future migration to microservices if scalability requirements increase.
+                <div style="text-align:center; padding: 20px; color: #94a3b8; border: 1px solid #e2e8f0; margin-top: 10px;">[Insert Architecture Diagram Here]</div>
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>7. Integration Design</h3>
-            <span class="diagram-req">🎨 DIAGRAM REQUIRED (Sequence/Flow)</span>
-            <div class="purpose-box"><b>Purpose:</b> Explain how systems communicate (APIs, Messaging, etc.).</div>
-            <div class="sample-box">Payment gateway integration uses synchronous REST calls. Asynchronous notifications are used for confirmation emails.</div>
+            <div class="outline-header"><h3>7. Integration Design</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Explain communication methods (APIs, messaging) and sync/async flows. <b>(UML Sequence Diagram Required)</b></div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                Integration with the payment gateway is implemented using synchronous REST APIs to immediately confirm payment status. The system sends payment requests and receives confirmation responses, which trigger enrollment finalization. Asynchronous messaging may be considered in future versions to handle payment retries and notifications.
+                <div style="text-align:center; padding: 20px; color: #94a3b8; border: 1px solid #e2e8f0; margin-top: 10px;">[Insert Integration Flow / Sequence Diagram Here]</div>
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>8. Non-Functional Considerations</h3>
-            <div class="purpose-box"><b>Purpose:</b> Address scalability, performance, and reliability.</div>
-            <div class="sample-box">Scalability: Vertical scaling for peak enrollment. Reliability: Retry logic for payment gateway timeouts.</div>
+            <div class="outline-header"><h3>8. Non-Functional Considerations</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Address quality attributes like scalability, performance, and reliability.</div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                <b>Scalability:</b> The system can scale vertically by increasing server resources during peak enrollment periods.<br>
+                <b>Performance:</b> Caching frequently accessed course data reduces database load.<br>
+                <b>Reliability:</b> Timeout and retry mechanisms are applied when communicating with external payment services.
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>9. Risks & Trade-offs</h3>
-            <div class="purpose-box"><b>Purpose:</b> Demonstrate architectural judgment.</div>
-            <div class="sample-box">Risk: External API downtime. Trade-off: Monolithic architecture chosen over Microservices for faster initial delivery.</div>
+            <div class="outline-header"><h3>9. Risks & Trade-offs</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Demonstrate architectural judgment and awareness of limitations.</div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                A key risk is the dependency on an external payment gateway, which may experience downtime. This risk is mitigated by implementing retry logic and clear error messaging. Choosing a monolithic architecture simplifies development but limits independent scaling of components, which may require refactoring in the future.
+            </div>
         </div>
 
         <div class="outline-item">
-            <h3>10. Conclusion</h3>
-            <div class="purpose-box"><b>Purpose:</b> Summarize the architectural value.</div>
-            <div class="sample-box">Proper modeling ensures interoperability and improves user experience while allowing future growth.</div>
+            <div class="outline-header"><h3>10. Conclusion</h3></div>
+            <div class="purpose-box"><b>Purpose:</b> Summarize the architectural value and expected benefits.</div>
+            <div class="sample-box">
+                <span class="sample-label">Sample Content:</span>
+                This document presented a high-level systems architecture and integration design for an Online Enrollment and Payment System. Through proper modeling and architectural planning, the proposed system aims to improve system interoperability, reliability, and user experience while remaining flexible for future growth.
+            </div>
         </div>
     </div>
 
     <div class="card">
-        <h2>6. Evaluation Emphasis</h2>
+        <h2>6. Minimum Required Diagrams</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Diagram</th>
+                    <th>Requirement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>System Context Diagram</td><td>✅ Required</td></tr>
+                <tr><td>BPMN Process Diagram</td><td>✅ Required</td></tr>
+                <tr><td>Component / Architecture Diagram</td><td>✅ Required</td></tr>
+                <tr><td>Integration Flow / Sequence Diagram</td><td>✅ Required</td></tr>
+            </tbody>
+        </table>
+
+        <h2 style="margin-top: 2rem;">7. Evaluation Emphasis</h2>
         <ul>
-            <li><b>Clarity and correctness</b> of diagrams and models.</li>
-            <li><b>Soundness</b> of architectural decisions and integration reasoning.</li>
-            <li><b>Consistency</b> between your diagrams and written explanations.</li>
-            <li><b>Professional structure</b> and technical writing quality.</li>
+            <li>Clarity and correctness of models</li>
+            <li>Soundness of architectural decisions</li>
+            <li>Quality of integration reasoning</li>
+            <li>Consistency between diagrams and explanations</li>
+            <li>Professional structure and technical writing</li>
         </ul>
+        <p style="background: #f8fafc; padding: 1rem; border-left: 4px solid var(--secondary); font-weight: bold;">
+            Reminder: This project is about thinking and documenting like a systems architect, not building features. Well-explained models matter more than complexity.
+        </p>
     </div>
 
     <div class="ref-section">
-        <h2>7. Key References</h2>
+        <h2>Key References</h2>
         <div class="ref-grid">
             <div>
                 <h4>Systems Architecture</h4>
                 <ul>
-                    <li>• ISO/IEC/IEEE 42010: Architecture Description</li>
-                    <li>• Richards & Ford: Fundamentals of Software Architecture</li>
-                    <li>• Maier & Rechtin: The Art of Systems Architecting</li>
+                    <li>• ISO/IEC/IEEE 42010: Systems and Software Engineering — Architecture Description</li>
+                    <li>• Richards, M. & Ford, N. (2020). Fundamentals of Software Architecture. O’Reilly.</li>
+                    <li>• Maier, M. W., & Rechtin, E. (2009). The Art of Systems Architecting</li>
                 </ul>
             </div>
             <div>
-                <h4>Integration & Patterns</h4>
+                <h4>Systems Integration</h4>
                 <ul>
-                    <li>• Hohpe & Woolf: Enterprise Integration Patterns</li>
-                    <li>• Fowler: Patterns of Enterprise App Architecture</li>
+                    <li>• Hohpe, G., & Woolf, B. (2003). Enterprise Integration Patterns. Addison-Wesley.</li>
+                    <li>• Fowler, M. – Patterns of Enterprise Application Architecture</li>
                 </ul>
             </div>
             <div>
-                <h4>UML, BPMN & Practice</h4>
+                <h4>UML, BPMN & Documentation</h4>
                 <ul>
-                    <li>• OMG: UML 2.5 & BPMN 2.0 Specifications</li>
-                    <li>• IEEE 1016: Software Design Description</li>
-                    <li>• Arc42 Architecture Template</li>
+                    <li>• Object Management Group (OMG). UML 2.5 Specification</li>
+                    <li>• Object Management Group (OMG). BPMN 2.0 Specification</li>
+                    <li>• IEEE 1016 – Software Design Description</li>
+                    <li>• Arc42 Architecture Documentation Template (Simplified)</li>
                 </ul>
             </div>
         </div>
     </div>
-
-    <div class="warning-footer">
-        💡 REMINDER: This project is about thinking and documenting like an architect. 
-        Clear reasoning matters more than system complexity!
-    </div>
-
 </div>
 
-<footer style="text-align: center; padding: 2rem; color: #64748b;">
-    &copy; 2026 Systems Integration and Architecture | Final Assessment Guide
+<footer style="text-align: center; padding: 3rem; color: #94a3b8; font-size: 0.9rem;">
+    &copy; 2026 Systems Integration and Architecture | Final Assessment Material
 </footer>
 
 </body>
